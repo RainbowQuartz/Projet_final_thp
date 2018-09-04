@@ -1,0 +1,2 @@
+class WantedLanguage < ApplicationRecord
+end
