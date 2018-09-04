@@ -95,6 +95,5 @@ Rails.application.configure do
   #Mailer
   config.action_mailer.delivery_method = :mailjet
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { :host => 'projet-final-thp-rennes-dev.herokuapp.com' }
   config.action_mailer.default_url_options = { :host => 'projet-final-thp-rennesprod.herokuapp.com/' }
 end
