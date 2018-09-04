@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  has_many :spoken_languages
+  has_many :languages, through: :spoken_languages
+  has_many :wanted_languages
+  has_many :languages, through: :wanted_languages
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
