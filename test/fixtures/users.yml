@@ -12,7 +12,7 @@ edgar:
   postal_code: 75000 
   bio: Bio
   birthdate: 01/01/2000
-  password_digest: <%= User.digest('password') %>
+  encrypted_password: 6letters
 
 martin:
   first_name: Martin
@@ -23,4 +23,4 @@ martin:
   postal_code: 35000
   bio: Bio
   birthdate: 01/01/2002
-  password_digest: <%= User.digest('password') %>
+  encrypted_password: 6letters
