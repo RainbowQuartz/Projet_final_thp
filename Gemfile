@@ -12,7 +12,7 @@ gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 # Use SCSS for stylesheets
