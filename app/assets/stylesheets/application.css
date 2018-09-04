@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/css/bootstrap.min
+
+
+*= require swiper/css/swiper.min
+*= require hamburgers/hamburgers.min
+*= require animate/animate.min
+
+*= require boomerang.min
  */
