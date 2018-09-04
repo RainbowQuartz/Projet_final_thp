@@ -6,6 +6,6 @@ class UsersController < ApplicationController
 			@user.avatar.purge
 		end
 		@user.avatar.attach(params.require(:user)[:avatar])
-    redirect_to user_path(current_user.id)
+    redirect_to root_path
   end
 end
