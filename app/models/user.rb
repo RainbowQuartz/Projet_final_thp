@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :birthdate, presence: true
   validates :bio, presence: true
 
-  has_one_attached: avatar
+  has_one_attached :avatar
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
