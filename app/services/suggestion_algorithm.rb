@@ -16,7 +16,6 @@ class SuggestionAlgorithm
       compare_cities(@city, compared_user)
       compare_postal_codes(@postal_code, compared_user)
       compare_interests(@interests, compared_user)
-    end
   end
 
   def compare_spoken_laguages(user_languages, compared_user)
