@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem "aws-sdk-s3", require: false
 gem 'rails-controller-testing'
 gem 'devise'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
