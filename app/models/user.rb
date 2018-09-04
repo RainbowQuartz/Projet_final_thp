@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :wanted_languages
   has_many :languages, through: :wanted_languages
   has_and_belongs_to_many :interests
+  has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
