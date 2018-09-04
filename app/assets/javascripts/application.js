@@ -18,8 +18,8 @@
 //= require jquery/jquery.min
 //= require popper/popper.min
 //= require bootstrap/js/bootstrap.min
-//= rerequire slidebar/slidebar
-//= rerequire classie
+//= require slidebar/slidebar
+//= require classie
 
 
 //= require bootstrap-notify/bootstrap-growl.min
@@ -55,4 +55,4 @@
 //= require isotope/isotope.min
 //= require imagesloaded/imagesloaded.pkgd.min
 
-//= rerequire boomerang.min
+//= require boomerang.min
