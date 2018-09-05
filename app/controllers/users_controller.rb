@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
-	def update
+	def show
+  end
+
+
+  def update
 		@user = current_user
 		if @user.avatar.attached?
 			@user.avatar.purge
