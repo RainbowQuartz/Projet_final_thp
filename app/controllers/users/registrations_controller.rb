@@ -19,6 +19,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
      super
    end
 
+   def informations
+    @spoken_languages = SpokenLanguage.create
+   end
+
   # PUT /resource
   # def update
   #   super
