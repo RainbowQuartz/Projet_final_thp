@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-	resources :users do
+resources :users, only: [:following, :followers] do 
     member do
       get :following, :followers
     end
@@ -10,7 +10,8 @@ Rails.application.routes.draw do
                                     confirmations: 'users/confirmations',
                                     passwords: 'users/passwords',
                                     unlocks: 'users/unlocks',
-                                    sessions: 'users/sessions'}
+                                    sessions: 'users/sessions'}  
+
 
   root to: 'static_pages#home'
   get 'static_pages/contact'
