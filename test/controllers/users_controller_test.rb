@@ -16,4 +16,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get followers_user_path(@user1)
     assert_redirected_to new_user_session_path
   end
+
+  
 end

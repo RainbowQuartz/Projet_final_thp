@@ -5,7 +5,7 @@ class FollowingTest < ActionDispatch::IntegrationTest
   def setup
     @user1 = users(:edgar)
     @user2 = users(:martin)
-    #sign_in(@user1)  
+    sign_in(@user1)  
   end
 
   test "following page" do
