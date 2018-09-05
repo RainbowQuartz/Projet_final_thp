@@ -32,11 +32,6 @@
                   <li class="nav-item dropdown megamenu">
                       <%= link_to (image_tag 'icons/home_blanc.png'), root_path, :class => 'nav-link' %>
                   </li>
-                  <li class="nav-item dropdown megamenu">
-                        <% if user_signed_in? %>
-                          <%= link_to (image_tag 'icons/profil_blanc.png'), user_path(current_user.id), :class => 'nav-link' %>
-                        <% end -%>
-                  </li>
 
                   <li class="nav-item dropdown megamenu">
                         <% if user_signed_in? %>
