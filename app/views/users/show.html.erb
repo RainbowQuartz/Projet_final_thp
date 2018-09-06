@@ -8,9 +8,9 @@
         <!-- Profile picture -->
 					       <div class="profile-picture profile-picture--style-2">
                             <% if @user.avatar.attached? %>
-                                <%= image_tag @user.avatar, :class=> "img-center"%>
+                                <%= image_tag @user.avatar, class: "img-center"%>
                                 <% else %>
-                                    <%= image_tag "profil.jpg", :class=> "img-center"%>
+                                    <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
                                 <a href="#" class="btn-aux">
                                     <i class="ion ion-edit"></i>

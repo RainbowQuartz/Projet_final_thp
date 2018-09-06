@@ -1,3 +1,57 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text-banner {
+  position: absolute !important;
+  color: #ffff;
+}
+
+.container-banner {
+    position: relative;
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid rgba(192,199,210,1);
+    padding-bottom: 10px;
+    margin: 0px !important;
+    width: 100%;
+    height: 200px;
+}
+
+.banner-img {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    width: 100%;
+    height: 50%;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    background:transparent;
+    color: #ffff;
+}
+
+.inscription {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    top: 50%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #ffff;
+    color: #fff;
+    width: 20em;
+    height: 15em;
+    box-shadow: 5px 10px 10px #000;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+
+.boutons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

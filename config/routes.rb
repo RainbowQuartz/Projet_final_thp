@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users, controllers: { registrations: 'users/registrations',
-                                    confirmations: 'users/confirmations',
-                                    passwords: 'users/passwords',
-                                    unlocks: 'users/unlocks',
-                                    sessions: 'users/sessions'}  
-
-
+  devise_for :users, controllers: {
+                                    sessions: 'users/sessions', 
+                                    registrations: 'users/registrations'
+                                   }
 
   root to: 'static_pages#home'
   get 'contact', to: 'static_pages#contact', as: 'contact'
@@ -19,5 +16,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :relationships,       only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end
