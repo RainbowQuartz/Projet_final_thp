@@ -1,1 +1,157 @@
-<h1>Vue show de user dans views/users/show.html.erb</h1>
+<section class="slice-sm sct-color-1">
+                        <div class="profile">
+                            <div class="container">
+                                <div class="row cols-xs-space cols-sm-space cols-md-space">
+                                    <div class="col-lg-4">
+                                        <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
+                                                <div class="widget">
+        <!-- Profile picture -->
+					        <div class="profile-picture profile-picture--style-2">
+					            <%= image_tag "profil.jpg" %>
+					            <a href="#" class="btn-aux">
+					                <i class="ion ion-edit"></i>
+					            </a>
+					        </div>
+
+
+					        <!-- Profile details -->
+					        <div class="profile-details">
+					            <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+					            
+					            <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
+					        </div>
+
+					        <!-- Profile connect -->
+					        <div class="profile-connect mt-4">	
+					            <a href="#" class="btn btn-styled btn-white btn-circle">Follow</a><hr>
+					            <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
+					        </div>
+
+   						</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-8">
+                                        <div class="main-content">
+                                            <!-- Page title -->
+                                            <div class="page-title">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-6 col-12">
+                                                        <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
+                                                            <a href="#" class="link text-underline--none">
+                                                                <i class="ion-ios-arrow-back"></i>Profile 
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-lg-6 col-12">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="link-menu link-menu--style-3 py-4 border-bottom">
+										      <a href="../../pages/profile/account-settings.html" class="active">Profil</a>
+										      <a href="../../pages/profile/account-orders.html">Paramètres</a>
+										    </div>
+
+                                            <!-- Account settings -->
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form class="form-default" data-toggle="validator" role="form">
+                                                        <!-- General information -->
+                                                        <div class="card no-border bg-transparent">
+                                                            <div class="card-title px-0 pb-0 no-border">
+                                                                <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
+                                                                    Biographie
+                                                                </h2>
+                                                                <p class="mt-1 mb-0">
+                                                                	<%= @user.bio %>
+                                                                		
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <hr class="mt-0 mb-0">
+
+                                                        <!-- Account info -->
+                                                        <div class="main-content">
+                                            <!-- Page title -->
+                                            <div class="page-title">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-6 col-12">
+                                                        <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
+                                                        	<i class="ion-ios-arrow-back"></i> Langues
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <!-- Languages -->
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="card no-border bg-transparent">
+                                                        <div class="card-title px-0">
+                                                            <h3 class="heading heading-6 strong-600">
+                                                                Langues maitrisées :
+                                                            </h3>
+                                                        </div>
+                                                        <div class="card-body px-0">
+                                                            
+                                                            <div>
+                                                            	<ul class="checkbox">
+                                                            		<li>Français</li>
+                                                            		<li>Anglais</li>
+                                                            	</ul>
+                                                            </div>                  
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="card no-border bg-transparent">
+                                                        <div class="card-title px-0">
+                                                            <h3 class="heading heading-6 strong-600">
+                                                                Langues en cours d'apprentissage : 
+                                                            </h3>
+                                                        </div>
+                                                        <div class="card-body px-0">
+                                                            
+                                                            <div>
+                                                            	<ul class="checkbox">
+                                                            		<li>Français</li>
+                                                            		<li>Anglais</li>
+                                                            	</ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                        <hr class="mt-0 mb-0">
+
+                                                        <!-- Change password -->
+                                                        <div class="card no-border bg-transparent">
+                                                            <div class="card-title px-0 pb-0 no-border">
+                                                                <h3 class="heading heading-6 strong-600">
+                                                                    Centres d'intérêts
+                                                                </h3>
+                                                            </div>
+                                                            <div class="card-body px-0">
+                                                                <div class="row">
+                                                                	<div class="col-md-6 col-lg-4">
+                                                                        <span class="badge badge-lg badge-primary">Music</span>
+                                                                        <span class="badge badge-lg badge-primary">Music</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
