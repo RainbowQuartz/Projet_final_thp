@@ -45,12 +45,28 @@
 
 .centered {
     position: absolute;
-    top: 100%;
-    left: 30%;
+    top: 50%;
+    left: 35%;
     transform: translate(-50%, -50%);
     background:transparent;
-    padding-bottom: 35em;
-    padding-left: 10em;
-    margin-left: 1.5em;
     color: #ffff;
+}
+
+.inscription{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #ffff;
+    color: #fff;
+    width: 20em;
+    height: 15em;
+    box-shadow: 5px 10px 10px #000;
+}
+
+.boutons{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 5em;
 }
