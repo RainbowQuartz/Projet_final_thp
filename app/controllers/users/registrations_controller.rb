@@ -17,6 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #GET /resource/edit
    def edit
      super
+     
    end
 
    def informations
@@ -63,4 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
 end
