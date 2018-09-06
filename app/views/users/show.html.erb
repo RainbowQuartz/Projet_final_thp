@@ -1,10 +1,10 @@
 <section class="slice-sm sct-color-1">
-                        <div class="profile">
-                            <div class="container">
-                                <div class="row cols-xs-space cols-sm-space cols-md-space">
-                                    <div class="col-lg-4">
-                                        <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
-                                                <div class="widget">
+    <div class="profile">
+        <div class="container">
+            <div class="row cols-xs-space cols-sm-space cols-md-space">
+                <div class="col-lg-4">
+                    <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
+                        <div class="widget">
         <!-- Profile picture -->
 					       <div class="profile-picture profile-picture--style-2">
                             <% if @user.avatar.attached? %>
@@ -28,10 +28,10 @@
 					        <div class="profile-connect mt-4">	
 					            <p><%= render 'follow_form' %></p>
 					            <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
-                                					        </div>  
+                            </div>  
    						</div>
-                                        </div>
-                                    </div>
+                    </div>
+                </div>
 
                                     <div class="col-lg-8">
                                         <div class="main-content">
@@ -50,10 +50,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="link-menu link-menu--style-3 py-4 border-bottom">
-										      <a href="../../pages/profile/account-settings.html" class="active">Profil</a>
-										      <a href="../../pages/profile/account-orders.html">Paramètres</a>
-										    </div>
+           <div class="link-menu link-menu--style-3 py-4 border-bottom">
+            <%= link_to 'Mon profil', @user %>
+            <%= link_to 'Modifier mon profil', @user %>
+            <%= link_to 'Following', following_user_path %>
+            <%= link_to 'Followers', followers_user_path %>
+          </div>
 
                                             <!-- Account settings -->
                                             <div class="row">
