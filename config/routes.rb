@@ -13,6 +13,7 @@ resources :users, only: [:following, :followers, :show, :destroy, :index] do
                                     sessions: 'users/sessions'}  
 
 
+
   root to: 'static_pages#home'
   get 'static_pages/contact'
   get 'static_pages/about'
