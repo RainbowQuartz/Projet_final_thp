@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-resources :users, only: [:following, :followers, :show, :destroy, :index] do 
-    member do
-      get :following, :followers
-    end
-  end
 
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     confirmations: 'users/confirmations',
@@ -13,9 +8,16 @@ resources :users, only: [:following, :followers, :show, :destroy, :index] do
                                     sessions: 'users/sessions'}  
 
 
+
   root to: 'static_pages#home'
-  get 'static_pages/contact'
-  get 'static_pages/about'
+  get 'contact', to: 'static_pages#contact', as: 'contact'
+  get 'about', to: 'static_pages#about', as: 'about'
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :relationships,       only: [:create, :destroy]
 end
