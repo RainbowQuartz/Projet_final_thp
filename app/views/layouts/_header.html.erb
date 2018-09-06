@@ -2,8 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-inverse bg-base-2">
         <div class="container navbar-container">
             <!-- Brand/Logo -->
-                <%= link_to root_path, :class => 'navbar-brand', :id => 'titre' %>
-
+            <%= link_to 'Home', root_path, :class => 'navbar-brand', :id => 'titre' %>
 
             <div class="d-inline-block">
                 <!-- Navbar toggler  -->
@@ -30,37 +29,25 @@
               <!-- Navbar links -->
               <ul class="navbar-nav">
                   <li class="nav-item dropdown megamenu">
-                      <%= link_to (image_tag 'icons/home_blanc.png'), root_path, :class => 'nav-link' %>
+                    <%= link_to (image_tag 'icons/home_blanc.png'), root_path, :class => 'nav-link' %>
                   </li>
-                  <li class="nav-item dropdown megamenu">
-                        <% if user_signed_in? %>
-                          <%= link_to (image_tag 'icons/profil_blanc.png'), user_path(current_user.id), :class => 'nav-link' %>
-                        <% end -%>
-                  </li>
-
-                  <li class="nav-item dropdown megamenu">
-                        <% if user_signed_in? %>
-                          <%= link_to (image_tag 'icons/profil_blanc.png'), user_path(current_user.id), :class => 'nav-link' %>
-                        <% end %>
-                  <li class="nav-item dropdown megamenu">
-                        <% if user_signed_in? %>
-                          <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'nav-link' %>
-                        <% else %>
-                        <li class="nav-item dropdown megamenu">
-                          <%= link_to "Sign in", new_user_session_path, :class => 'nav-link'  %>
-                        </li>
-                        <li class="nav-item dropdown megamenu">
-                          <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link' %>
-                          </li>
-                        <% end %>
+                  <% if user_signed_in? %>
+                    <li class="nav-item dropdown megamenu">          
+                      <%= link_to (image_tag 'icons/profil_blanc.png'), user_path(current_user.id), :class => 'nav-link' %>
                     </li>
-
+                    <li class="nav-item dropdown megamenu">
+                      <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, :class => 'nav-link'%>
                     </li>
-
-              </ul>
-        </div>
-      </div>
-        
+                    <% else %>
+                      <li class="nav-item dropdown megamenu">
+                        <%= link_to "Se connecter", new_user_session_path, :class => 'nav-link'  %>
+                      </li>
+                      <li class="nav-item dropdown megamenu">
+                        <%= link_to "S'enregistrer", new_user_registration_path, :class => 'nav-link' %>
+                      </li>
+                  <% end %>
+              </ul>    
+            </div> 
+        </div>      
     </nav>
-</div>
 
