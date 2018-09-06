@@ -31,10 +31,16 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <h2>Sélectionnez vos interets</h2>
+    <%= collection_select(:user, :interest_ids, Interest.all, :id, :name, {}, { :multiple => true}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
+
 
 <%= form_for(@user) do |form| %>
 <div>
