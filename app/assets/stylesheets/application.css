@@ -12,4 +12,45 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/css/bootstrap.min
+
+
+*= require swiper/css/swiper.min
+*= require hamburgers/hamburgers.min
+*= require animate/animate.min
+
+*= require boomerang.min
  */
+.text-banner{
+  position: absolute !important;
+  color: #ffff;
+
+}
+
+.container-banner {
+    position: relative;
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid rgba(192,199,210,1);
+    padding-bottom: 10px;
+    margin: 0px !important;
+    width: 100%;
+    height: 200px;
+}
+
+.banner-img{
+  width: 100%;
+  height: 50%;
+}
+
+.centered {
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background:transparent;
+    padding-bottom: 35em;
+    padding-left: 10em;
+    margin-left: 1.5em;
+    color: #ffff;
+}

@@ -7,11 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet"> 
+
   </head>
 
   <body>
-    <%= yield %>
-
-    <%= debug(params) if Rails.env.development? %>
+    <%= render 'layouts/header'%>
+    <%= yield %> 
+    <%= debug(params) if Rails.env.development? %>  
+    <%= debug session.to_hash if Rails.env.development?%>
+    <%= render 'layouts/footer'%>
+   
   </body>
 </html>
