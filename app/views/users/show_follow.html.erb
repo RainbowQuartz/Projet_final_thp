@@ -8,143 +8,79 @@
             <div class="widget">
         <!-- Profile picture -->
               <div class="profile-picture profile-picture--style-2">
-                <%= image_tag "profil.jpg" %>
+                <% if @user.avatar.attached? %>
+                  <%= image_tag @user.avatar, :class=> "img-center"%>
+                    <% else %>
+                      <%= image_tag "profil.jpg", :class=> "img-center"%>
+                    <% end %>
               </div>
 
-                  <!-- Profile details -->
+        <!-- Profile details -->
               <div class="profile-details">
                 <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
                 <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
               </div>
-
-        <!-- Profile connect -->
-        <div class="profile-connect mt-4">
-            <a href="#" class="btn btn-styled btn-block btn-rounded btn-base-1">Follow</a>
-            <a href="#" class="btn btn-styled btn-block btn-rounded btn-base-2">Send message</a>
+            </div>
+          </div>
         </div>
 
-        <!-- Profile stats -->
-        <div class="profile-stats clearfix">
-            <div class="stats-entry">
-                <span class="stats-count">180</span>
-                <span class="stats-label text-uppercase">Projects</span>
+        <div class="col-lg-8">
+          <div class="main-content">
+          <!-- Page title -->
+          <% provide(:title, @title) %>
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-12">
+                <h2 class="heading heading-6 strong-600 mb-0 text-capitalize strong-500 mb-0">
+                    <a href="#" class="link text-underline--none">
+                      <i class="ion-ios-arrow-back"></i> Mon titre Lien  ici a modifier ?????
+                    </a>
+                </h2>
+              </div>
+              <div class="col-lg-6 col-12">
+              </div>
             </div>
-            <div class="stats-entry">
-                <span class="stats-count">1.3K</span>
-                <span class="stats-label text-uppercase">Followers</span>
+          </div>
+
+          <div class="link-menu link-menu--style-3 py-4 border-bottom">
+            <%= link_to 'Mon profil', @user %>
+            <%= link_to 'Following', following_user_path %>
+            <%= link_to 'Followers', followers_user_path %>
+          </div>
+
+          <!-- User follower and following -->
+                <div class="row cols-md-space cols-sm-space cols-xs-space">
+                  <% if @users.any? %>
+                    <% @users.each do |user| %>
+                    <div class="col-lg-4">
+                      <div class="block block--style-3">
+                        <div class="profile-picture profile-picture--style-2">
+                          <img src="../../assets/images/prv/people/person-1.jpg" >
+                        </div>
+        
+                      <div class="block-body text-center">
+                        <h3 class="heading heading-6 strong-600 mb-0 mb-0"><%= user.first_name %></h3>
+                        <h3 class="heading heading-light heading-sm strong-300"><%= user.city %>, <%= user.country %></h3>
+                        <div class="aux-info-wrapper border-top">
+                          <ul class="aux-info">
+                            <li class="heading strong-400 text-center">
+                              <span class="d-block strong-600">Parle : Anglais</span>  
+                              <span class="d-block strong-600">Apprends à parler : Français</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                        <%= link_to 'Voir le profil', user %>
+                        </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-
-        <!-- Profile connected accounts -->
-        <div class="profile-useful-links clearfix">
-            <div class="useful-links">
-                <a href="#" class="link link--style-1">
-                    <i class="icon ion-social-instagram-outline"></i>
-                    instagram.com/webpixels_io
-                </a>
-                <a href="#" class="link link--style-1">
-                    <i class="icon ion-social-dribbble"></i>
-                    dribbble.com/webpixels
-                </a>
-
-                <a href="#" class="link link--style-1">
-                    <i class="icon ion-earth"></i>
-                    webpixels.io
-                </a>
-            </div>
-        </div>
-
-        <div class="profile-useful-links clearfix">
-            <div class="useful-links">
-                <a href="#" class="link link--style-1">
-                    <i class="icon ion-code-download"></i>
-                    Export page as PDF
-                </a>
-            </div>
-        </div>
-    </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-8">
-                                        <div class="main-content">
-                                            <!-- Page title -->
-                                            <div class="page-title">
-                                                <div class="row align-items-center">
-                                                    <div class="col-lg-6 col-12">
-                                                        <h2 class="heading heading-6 strong-600 mb-0 text-capitalize strong-500 mb-0">
-                                                            <a href="#" class="link text-underline--none">
-                                                                <i class="ion-ios-arrow-back"></i> Orders
-                                                            </a>
-                                                        </h2>
-                                                    </div>
-                                                    <div class="col-lg-6 col-12">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="link-menu link-menu--style-3 py-4 border-bottom">
-                                                <a href="../../pages/profile/account-settings.html">Settings</a>
-                                                <a href="../../pages/profile/account-orders.html">Orders</a>
-                                                <a href="../../pages/profile/account-cards.html">Cards</a>
-                                                <a href="../../pages/profile/account-security.html">Security</a>
-                                                <a href="../../pages/profile/account-connections.html" class="active">Connections</a>
-                                            </div>
-
-                                            <!-- Order history table -->
-                                            <div class="widget mt-4">
-                                                <div class="row-wrapper">
-                                                    <div class="row cols-md-space cols-sm-space cols-xs-space">
-                                                        <div class="col-lg-4">
-                                                            <div class="block block--style-3">
-                                                                <div class="profile-picture profile-picture--style-2">
-                                                                    <img src="../../assets/images/prv/people/person-1.jpg" >
-                                                                </div>
-
-                                                                <div class="block-body text-center">
-                                                                    <h3 class="heading heading-6 strong-600 mb-0 mb-0">Desiree Jinny</h3>
-                                                                    <h3 class="heading heading-light heading-sm strong-300">CEO of Webpixels</h3>
-
-                                                                    <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Follow</a>
-                                                                </div>
-                                                                <div class="aux-info-wrapper border-top">
-                                                                    <ul class="aux-info">
-                                                                        <li class="heading strong-400 text-center">
-                                                                            <span class="d-block strong-600">10k</span>
-                                                                            Followers
-                                                                        </li>
-                                                                        <li class="heading strong-400 text-center">
-                                                                            <span class="d-block strong-600">5k</span>
-                                                                            Following
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>Prénom: <%= @user.first_name %></h1>
-      <span><%= link_to "Voir mon profil", @user %></span>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <% @users.each do |user| %>
-      <ul>
-        <li>id: <%= user.id %></li>
-        <li>Prénom: <%= user.first_name %></li>
-        <li>Nom: <%= user.last_name %></li>
-        <li><%= link_to 'Voir le profil', user %></li>
-      </ul>
-      <% end %>        
-      <% else %>
-          <p>Pas de données </p>
-    <% end %>
-  </div>
-</div>
+</section>
+<% end -%>
