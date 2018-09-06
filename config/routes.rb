@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-resources :users, only: [:following, :followers] do 
+resources :users, only: [:following, :followers, :show, :destroy, :index] do 
     member do
       get :following, :followers
     end
