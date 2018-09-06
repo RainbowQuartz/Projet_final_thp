@@ -7,12 +7,12 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get contact" do
-    get static_pages_contact_path
+    get contact_path
     assert_response :success
   end
 
   test "should get about" do
-    get static_pages_about_path
+    get about_path
     assert_response :success
   end
 

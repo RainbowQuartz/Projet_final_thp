@@ -6,13 +6,16 @@
                                         <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
                                                 <div class="widget">
         <!-- Profile picture -->
-					        <div class="profile-picture profile-picture--style-2">
-					            <%= image_tag "profil.jpg" %>
-					            <a href="#" class="btn-aux">
-					                <i class="ion ion-edit"></i>
-					            </a>
-					        </div>
-
+					       <div class="profile-picture profile-picture--style-2">
+                            <% if @user.avatar.attached? %>
+                                <%= image_tag @user.avatar, :class=> "img-center"%>
+                                <% else %>
+                                    <%= image_tag "profil.jpg", :class=> "img-center"%>
+                                <% end %>
+                                <a href="#" class="btn-aux">
+                                    <i class="ion ion-edit"></i>
+                                </a>
+                            </div>
 
 					        <!-- Profile details -->
 					        <div class="profile-details">
@@ -23,10 +26,9 @@
 
 					        <!-- Profile connect -->
 					        <div class="profile-connect mt-4">	
-					            <a href="#" class="btn btn-styled btn-white btn-circle">Follow</a><hr>
+					            <p><%= render 'follow_form' %></p>
 					            <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
-					        </div>
-
+                                					        </div>  
    						</div>
                                         </div>
                                     </div>
