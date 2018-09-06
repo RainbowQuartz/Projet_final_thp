@@ -1,0 +1,24 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>Prénom: <%= @user.first_name %></h1>
+      <span><%= link_to "Voir mon profil", @user %></span>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <% @users.each do |user| %>
+      <ul>
+        <li>id: <%= user.id %></li>
+        <li>Prénom: <%= user.first_name %></li>
+        <li>Nom: <%= user.last_name %></li>
+        <li><%= link_to 'Voir le profil', user %></li>
+      </ul>
+      <% end %>        
+      <% else %>
+          <p>Pas de données </p>
+    <% end %>
+  </div>
+</div>

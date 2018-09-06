@@ -6,7 +6,7 @@
 edgar:
   first_name: Edgar
   last_name: dupont
-  email: michael@example.com
+  email: edgar@example.com
   country: France
   city: Paris
   postal_code: 75000 
