@@ -1,5 +1,5 @@
 <section class="image">
-    <%= image_tag 'index/restaurant.jpg', :class => 'banner-img'%>
+    <%= image_tag 'index/restaurant.jpg', class: 'banner-img'%>
     <div class="centered">
         <div class="container">
             <div class="row">
@@ -18,8 +18,8 @@
     <section class="inscription">
     	<div class="container">
     		<div class="boutons">
-    			<a class="btn btn-styled btn-base-1 btn-circle">S'inscrire</a>
-    			<a class="btn btn-styled btn-base-1 btn-circle">Se connecter</a>
+          <p><%= link_to "Se connecter", new_user_session_path, class: 'btn btn-styled btn-base-1 btn-circle'  %></p>
+    			<p><%= link_to "S'enregistrer", new_user_registration_path, class: 'btn btn-styled btn-base-1 btn-circle' %></p>
     		</div>
     	</div>
     </section>
