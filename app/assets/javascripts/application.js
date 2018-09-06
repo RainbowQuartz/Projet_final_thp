@@ -13,18 +13,14 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require_tree .
-
+//= require rails-ujs
 //= require jquery/jquery.min
 //= require popper/popper.min
 //= require bootstrap/js/bootstrap.min
 //= require slidebar/slidebar
 //= require classie
-
-
 //= require bootstrap-notify/bootstrap-growl.min
 //= require scrollpos-styler/scrollpos-styler
-
 //= require adaptive-backgrounds/adaptive-backgrounds
 //= require countdown/js/jquery.countdown.min
 //= require dropzone/dropzone.min
@@ -50,9 +46,7 @@
 //= require vide/vide.min
 //= require viewport-checker/viewportchecker.min
 //= require wow/wow.min
-
-
 //= require isotope/isotope.min
 //= require imagesloaded/imagesloaded.pkgd.min
-
 //= require boomerang.min
+//= require_tree .
