@@ -1,0 +1,30 @@
+<section class="image">
+    <%= image_tag 'index/restaurant.jpg', class: 'banner-img'%>
+    <div class="centered">
+        <div class="container">
+            <div class="row">
+               <h3 class="heading display-4 strong-400 c-white">
+                 Bienvenue sur Speak&UP
+               </h3>
+               <p class="text-lg line-height-1_8 c-white mt-4">
+               	Vous désirez rencontrer du monde avec qui parler étranger ?<br>
+               	Ici nous vous proposons des profils compatibles avec vos envies d'apprentissage.<br><br>
+               	<strong>Inscrivez vous afin de profiter de l'expérience !</strong>
+               </p> 
+        	  </div>
+        </div>
+      </div>
+
+    <section class="inscription">
+
+    	<div class="container">
+    		<div class="boutons">
+          <p><%= link_to "Se connecter", new_user_session_path, class: 'btn btn-styled btn-base-1 btn-circle'  %></p>
+    			<p><%= link_to "S'enregistrer", new_user_registration_path, class: 'btn btn-styled btn-base-1 btn-circle' %></p>
+    		</div>
+    	</div>
+    </section>
+</section>
+
+
+

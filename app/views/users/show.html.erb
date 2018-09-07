@@ -1,22 +1,21 @@
 <section class="slice-sm sct-color-1">
-                        <div class="profile">
-                            <div class="container">
-                                <div class="row cols-xs-space cols-sm-space cols-md-space">
-                                    <div class="col-lg-4">
-                                        <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
-                                                <div class="widget">
+    <div class="profile">
+        <div class="container">
+            <div class="row cols-xs-space cols-sm-space cols-md-space">
+                <div class="col-lg-4">
+                    <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
+                        <div class="widget">
         <!-- Profile picture -->
 					       <div class="profile-picture profile-picture--style-2">
                             <% if @user.avatar.attached? %>
-                                <%= image_tag @user.avatar, :class=> "img-center"%>
+                                <%= image_tag @user.avatar, class: "img-center"%>
                                 <% else %>
-                                    <%= image_tag "profil.jpg", :class=> "img-center"%>
+                                    <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
                                 <a href="#" class="btn-aux">
                                     <i class="ion ion-edit"></i>
                                 </a>
                             </div>
-
 					        <!-- Profile details -->
 					        <div class="profile-details">
 					            <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
@@ -28,10 +27,10 @@
 					        <div class="profile-connect mt-4">	
 					            <p><%= render 'follow_form' %></p>
 					            <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
-                                					        </div>  
+                            </div>  
    						</div>
-                                        </div>
-                                    </div>
+                    </div>
+                </div>
 
                                     <div class="col-lg-8">
                                         <div class="main-content">
@@ -50,10 +49,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="link-menu link-menu--style-3 py-4 border-bottom">
-										      <a href="../../pages/profile/account-settings.html" class="active">Profil</a>
-										      <a href="../../pages/profile/account-orders.html">Paramètres</a>
-										    </div>
+           <div class="link-menu link-menu--style-3 py-4 border-bottom">
+            <%= link_to 'Mon profil', current_user, :class =>"active" %>
+            <%= link_to 'Modifier mon profil', current_user %>
+            <%= link_to 'Following', following_user_path(current_user) %>
+            <%= link_to 'Followers', followers_user_path(current_user) %>
+          </div>
 
                                             <!-- Account settings -->
                                             <div class="row">
