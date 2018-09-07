@@ -1,38 +1,28 @@
-    <%= image_tag 'index/img-wide-lg-6.jpg', :class => "holder-item has-bg-cover bg-size-cover banner-img"%>
-    <div class="container d-flex no-padding centered">
-                        <div class="col">
-                            <div class="row cols-xs-space align-items-center py-5 text-center text-md-left">
-                                <div class="col-12 col-md-7 col-lg-6">
-                                    <small class="strong-600 text-uppercase ls-2 c-base-1">Speak&UP</small>
-                                    <h2 class="heading heading-1 strong-400 c-white mt-4">
-                                        Speak&UP est une plateforme de rencontre, basée sur l'apprentissage de langues.
-                                    </h2>
-                                    <p class="lead mt-4 c-white">
-                                        Ici, nous vous proposons des profils correspondant à vos attentes. <br>
-                                        Il ne vous reste plus qu'à matcher !
-                                    </p>
-
-                                    <a href="#" class="btn btn-styled btn-sm btn-base-1 btn-circle mt-4">Start reading</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-      <section class="inscription">
-      	<div class="container">
-      		<div class="boutons">
-      			<a class="btn btn-styled btn-base-1 btn-circle">S'inscrire</a>
-      			<a class="btn btn-styled btn-base-1 btn-circle">Se connecter</a>
-      		</div>
-      	</div>
+<section class="image">
+    <%= image_tag 'index/restaurant.jpg', class: 'banner-img'%>
+    <div class="centered">
+        <div class="container">
+            <div class="row">
+               <h3 class="heading display-4 strong-400 c-white">
+                 Bienvenue sur Speak&UP
+               </h3>
+               <p class="text-lg line-height-1_8 c-white mt-4">
+               	Vous désirez rencontrer du monde avec qui parler étranger ?<br>
+               	Ici nous vous proposons des profils compatibles avec vos envies d'apprentissage.<br><br>
+               	<strong>Inscrivez vous afin de profiter de l'expérience !</strong>
+               </p> 
+        	  </div>
+        </div>
       </div>
-      </section>
-    </div>
-  </div>
-</div>
+    <section class="inscription">
+    	<div class="container">
+    		<div class="boutons">
+          <p><%= link_to "Se connecter", new_user_session_path, class: 'btn btn-styled btn-base-1 btn-circle'  %></p>
+    			<p><%= link_to "S'enregistrer", new_user_registration_path, class: 'btn btn-styled btn-base-1 btn-circle' %></p>
+    		</div>
+    	</div>
+    </section>
+</section>
 
 
 

@@ -8,9 +8,9 @@
         <!-- Profile picture -->
 					       <div class="profile-picture profile-picture--style-2">
                             <% if @user.avatar.attached? %>
-                                <%= image_tag @user.avatar, :class=> "img-center"%>
+                                <%= image_tag @user.avatar, class: "img-center"%>
                                 <% else %>
-                                    <%= image_tag "profil.jpg", :class=> "img-center"%>
+                                    <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
                                 <a href="#" class="btn-aux">
                                     <i class="ion ion-edit"></i>
@@ -50,10 +50,10 @@
                                                 </div>
                                             </div>
            <div class="link-menu link-menu--style-3 py-4 border-bottom">
-            <%= link_to 'Mon profil', @user %>
-            <%= link_to 'Modifier mon profil', @user %>
-            <%= link_to 'Following', following_user_path %>
-            <%= link_to 'Followers', followers_user_path %>
+            <%= link_to 'Mon profil', current_user %>
+            <%= link_to 'Modifier mon profil', current_user %>
+            <%= link_to 'Following', following_user_path(current_user) %>
+            <%= link_to 'Followers', followers_user_path(current_user) %>
           </div>
 
                                             <!-- Account settings -->
