@@ -41,7 +41,7 @@
               <div class="form-group">
 
                 <label>Nouvelle image</label>
-                <%= form.file_field :avatar%>                
+                <%= form.file_field :avatar%>
               </div>
           </div>
 
@@ -54,11 +54,6 @@
         </div>
       </div>
     </div>
-
-  <div class="field">
-    <h2>Sélectionnez vos interets</h2>
-    <%= collection_select(:user, :interest_ids, Interest.all, :id, :name, {}, { :multiple => true}) %>
-  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
@@ -179,4 +174,3 @@
   </div>
   </div>
 </section>
-

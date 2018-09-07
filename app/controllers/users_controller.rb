@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
 	def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
 
