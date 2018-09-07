@@ -49,4 +49,5 @@
 //= require isotope/isotope.min
 //= require imagesloaded/imagesloaded.pkgd.min
 //= require boomerang.min
+//= require_tree ./channels
 //= require_tree .
