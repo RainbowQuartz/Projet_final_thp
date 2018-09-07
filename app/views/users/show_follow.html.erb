@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row cols-xs-space cols-sm-space cols-md-space">
         <div class="col-lg-4">
-          <div class="sidebar sidebar--style-2 no-border stickyfill">
+          <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
             <div class="widget">
         <!-- Profile picture -->
               <div class="profile-picture profile-picture--style-2">
@@ -42,9 +42,9 @@
           </div>
 
           <div class="link-menu link-menu--style-3 py-4 border-bottom">
-            <%= link_to 'Mon profil', @user %>
-            <%= link_to 'Following', following_user_path %>
-            <%= link_to 'Followers', followers_user_path %>
+            <%= link_to 'Mon profil', current_user %>
+            <%= link_to 'Following', following_user_path(current_user) %>
+            <%= link_to 'Followers', followers_user_path(current_user) %>
           </div>
 
           <!-- User follower and following -->

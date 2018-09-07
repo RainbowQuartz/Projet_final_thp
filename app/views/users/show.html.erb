@@ -50,10 +50,10 @@
                                                 </div>
                                             </div>
            <div class="link-menu link-menu--style-3 py-4 border-bottom">
-            <%= link_to 'Mon profil', @user %>
-            <%= link_to 'Modifier mon profil', @user %>
-            <%= link_to 'Following', following_user_path %>
-            <%= link_to 'Followers', followers_user_path %>
+            <%= link_to 'Mon profil', current_user %>
+            <%= link_to 'Modifier mon profil', current_user %>
+            <%= link_to 'Following', following_user_path(current_user) %>
+            <%= link_to 'Followers', followers_user_path(current_user) %>
           </div>
 
                                             <!-- Account settings -->
