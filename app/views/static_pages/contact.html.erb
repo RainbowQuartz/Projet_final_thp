@@ -1,2 +1,67 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<section class="slice">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="heading heading-2 strong-400">Contactez-nous pour obtenir de l'aide</h2>
+      <p>Veuillez remplir le formulaire ci-dessous et nous vous contacterons dans les plus brefs délais.</p>
+    </div>
+  </div>
+</section>
+<section class="slice pt-0 sct-color-1">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form id="form_contact" data-action="../../php/send-email.php" class="form-default" role="form">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group has-feedback">
+                <label for="" class="text-uppercase c-gray-light">Nom</label>
+                <input type="text" name="name" class="form-control form-control-lg" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group has-feedback">
+                <label for="" class="text-uppercase c-gray-light">Adresse e-mail</label>
+                <input type="email" name="email" class="form-control form-control-lg" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group has-feedback">
+                <label for="" class="text-uppercase c-gray-light">Sujet</label>
+                <input type="text" name="website" class="form-control form-control-lg" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group has-feedback">
+                <label for="" class="text-uppercase c-gray-light">Numéro de téléphone</label>
+                <input type="text" name="phone" class="form-control form-control-lg" required>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group has-feedback">
+                <label for=""  class="text-uppercase c-gray-light">Message</label>
+                <textarea name="message" class="form-control no-resize" rows="5" required></textarea>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <button type="submit" class="btn btn-styled btn-base-1 mt-4">Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
