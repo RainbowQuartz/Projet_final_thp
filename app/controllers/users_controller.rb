@@ -7,11 +7,19 @@ class UsersController < ApplicationController
 
 
   def update
+    puts params
 		@user = current_user
 		if @user.avatar.attached?
-			@user.avatar.purge
+		    @user.avatar.purge
 		end
 		@user.avatar.attach(params.require(:user)[:avatar])
+
+    params[:interests][:id].each do |interest|
+      if !interest.empty?
+        @user.interests << Interest.find(interest)
+      end
+    end
+
     redirect_to root_path
   end
 

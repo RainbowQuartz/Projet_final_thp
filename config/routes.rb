@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get 'interest/edit'
+  get 'interests/edit'
+  post 'interests/edit', to: 'interests#update'
   devise_for :users, controllers: {
                                     sessions: 'users/sessions',
                                     registrations: 'users/registrations'
