@@ -1,17 +1,17 @@
-<%= form_for(current_user.wanted_languages.build, url: languages_edit_path) do |f| %>
-    <div class="field">
-      <%= f.label "Choisissez les langues que vous voulez apprendre" %><br />
-      <%= collection_select(:languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
-    </div>
+<%= form_for(@wanted_languages, url: languages_edit_path) do |f| %>
+  <div><%= hidden_field_tag :user_id, current_user.id %></div>
+  <div class="field">
+    <%= f.label "Choisissez les langues que vous voulez apprendre" %><br />
+    <%= collection_select(:languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
+  </div>
   <%= f.submit "Langues en apprentissage"%>
-
 <% end %>
 
-<%= form_for(current_user.spoken_languages.build, url: languages_edit_path) do |f| %>
-    <div class="field">
-      <%= f.label "Choisissez les langues que vous parlez" %><br />
-      <%= collection_select(:languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
-    </div>
+<%= form_for(@spoken_languages, url: languages_edit_path) do |f| %>
+  <div><%= hidden_field_tag :user_id, current_user.id %></div>
+  <div class="field">
+    <%= f.label "Choisissez les langues que vous parlez" %><br />
+    <%= collection_select(:languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
+  </div>
   <%= f.submit "Langues parlées"%>
-
 <% end %>
