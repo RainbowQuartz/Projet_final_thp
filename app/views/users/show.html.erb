@@ -26,7 +26,7 @@
 					        <!-- Profile connect -->
 					        <div class="profile-connect mt-4">	
 					            <p><%= render 'follow_form' %></p>
-					            <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
+					            <p><%= render 'send_message' %></p>
                             </div>  
    						</div>
                     </div>
@@ -52,6 +52,7 @@
            <div class="link-menu link-menu--style-3 py-4 border-bottom">
             <%= link_to 'Mon profil', current_user, :class =>"active" %>
             <%= link_to 'Modifier mon profil', current_user %>
+            <%= link_to 'Mes Matchs', match_user_path(current_user) %>
             <%= link_to 'Following', following_user_path(current_user) %>
             <%= link_to 'Followers', followers_user_path(current_user) %>
           </div>
