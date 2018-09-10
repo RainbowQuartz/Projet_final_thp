@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'languages/edit'
-  post 'languages/edit', to: 'languages#update'
+  post 'languages/edit', to: 'languages#create'
   get 'interests/edit'
   post 'interests/edit', to: 'interests#update'
   devise_for :users, controllers: {
