@@ -1,0 +1,11 @@
+<%= form_for(current_user, url: languages_edit_path, method: :create) do |f| %>
+  <div class="field">
+    <%= f.label "Choisissez les langues que vous voulez apprendre" %><br />
+    <%= collection_select(:wanted_languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
+  </div>
+  <div class="field">
+    <%= f.label "Choisissez les langues que vous parlez" %><br />
+    <%= collection_select(:spoken_languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
+  </div>
+  <%= f.submit "Ajouter les langues" %>
+<% end %>
