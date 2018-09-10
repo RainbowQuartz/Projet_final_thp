@@ -48,6 +48,14 @@ class UsersController < ApplicationController
     puts "======================"
   end
 
+  def preferences
+    @user = User.find(params[:id])
+  end
+
+  def langues
+    @user = User.find(params[:id])
+  end
+
  # private 
 
   def list_match
