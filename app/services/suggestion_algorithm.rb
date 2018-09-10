@@ -69,4 +69,7 @@ class SuggestionAlgorithm
     end
   end
 
+  def perform(user, compared_user)
+    calculate_match_points(user, compared_user)
+  end
 end
