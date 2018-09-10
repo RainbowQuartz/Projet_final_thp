@@ -5,6 +5,7 @@ class InterestsController < ApplicationController
     @user = User.find(current_user.id)
     @all_interests = Interest.all
     @interest_user = @user.interests.build
+    @user = current_user
 
   end
 
