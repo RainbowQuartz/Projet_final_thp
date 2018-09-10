@@ -56,4 +56,17 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end        
+
+  # Returns true if the current user is followed by  the other user.
+  def followers?(other_user)
+    followers.include?(other_user)
+  end
+
+  # Returns true if user1 and user are matching, user1 and user2 follow each other
+  def self.match?(user1, user2)
+    if user1.following.include?(user2) && user2.followers.include?(user1)
+      return true
+    end
+  end
+
 end
