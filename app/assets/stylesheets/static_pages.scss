@@ -19,10 +19,22 @@
 }
 
 .banner-img {
-    opacity: 0.8;
-    filter: alpha(opacity=80);
+    opacity: 0.75;
+    filter: alpha(opacity=75);
     width: 100%;
     height: 50%;
+
+}
+
+.banner-img2{
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+    width: 100%;
+    height: 50%;
+
+}
+.image{
+        background-color: #3452ff;
 }
 
 .centered {
@@ -30,28 +42,29 @@
     top: 50%;
     left: 35%;
     transform: translate(-50%, -50%);
-    background:transparent;
-    color: #ffff;
 }
 
+
 .inscription {
-    position: absolute;
     display: flex;
-    align-content: center;
+    position: absolute;
+    align-items: center;
     top: 50%;
     right: 5%;
     transform: translate(-50%, -50%);
     background-color: #ffff;
     color: #fff;
-    width: 20em;
+    width:12em;
     height: 15em;
-    box-shadow: 5px 10px 10px #000;
-    opacity: 0.85;
+    border-radius: 1.5em;
+    box-shadow: 5px 5px 10px #03050F;
+    opacity: 0.95;
     filter: alpha(opacity=85);
 }
-
 .boutons {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+
 }
