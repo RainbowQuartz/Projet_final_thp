@@ -1,2 +1,8 @@
-<h1>Languages#edit</h1>
-<p>Find me in app/views/languages/edit.html.erb</p>
+<%= form_for(current_user.wanted_languages.build, url: languages_edit_path) do |f| %>
+    <div class="field">
+      <%= f.label "Choisissez les langues que vous voulez apprendre" %><br />
+      <%= collection_select(:languages, :id, Language.all, :id, :name, {}, { :multiple => true}) %>
+    </div>
+  <%= f.submit %>
+
+<% end %>
