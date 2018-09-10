@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :chats, only: [:index, :show, :create]
     member do
-      get :following, :followers, :match, :preferences, :langues
+      get :following, :followers, :match
     end
     
   end
