@@ -54,8 +54,8 @@
 
                                       <div class="link-menu link-menu--style-3 py-4 ">
                                         <%= link_to 'Paramètres général', edit_user_registration_path, :class =>"active" %>
-                                        <%= link_to 'Préférences', preferences_user_path(current_user[:id])%>
-                                        <%= link_to 'Langues', langues_user_path(current_user[:id]) %>
+                                        <%= link_to 'Préférences', interests_edit_path(current_user[:id])%>
+                                        <%= link_to 'Langues', languages_edit_path(current_user[:id]) %>
                                       </div>
           <!-- Account settings -->
           <div class="row">
