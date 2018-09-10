@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_142935) do
+ActiveRecord::Schema.define(version: 2018_09_07_124931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 2018_09_04_142935) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "interests", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -51,6 +57,14 @@ ActiveRecord::Schema.define(version: 2018_09_04_142935) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "chat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +86,13 @@ ActiveRecord::Schema.define(version: 2018_09_04_142935) do
     t.bigint "language_id"
     t.index ["language_id"], name: "index_spoken_languages_on_language_id"
     t.index ["user_id"], name: "index_spoken_languages_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "chat_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

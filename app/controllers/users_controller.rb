@@ -37,4 +37,28 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+
+  def match
+    @title = "Mes matchs"
+    @user = User.find(params[:id])
+    @users = list_match
+    puts "======================"
+    puts @users
+    puts @users.inspect
+    puts "======================"
+  end
+
+ # private 
+
+  def list_match
+    list = []
+    User.all.each do |user|    
+      if User.match?(current_user, user)
+      list << user 
+      end
+     end 
+    return list 
+  end
+
 end
+
