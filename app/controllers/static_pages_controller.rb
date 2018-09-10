@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action suggestions, only: [:home]
+  before_action :suggestions, only: [:home]
 
   def home
   end
@@ -15,8 +15,10 @@ class StaticPagesController < ApplicationController
   def suggestions
     @comparisons_hash = {}
     User.all.each do |compared_user|
-      SuggestionAlgorithm.perform(current_user, compared_user)
-      @comparisons_hash[compared_user.id] = @match_points
+      points = SuggestionAlgorithm.perform(current_user, compared_user)
+      p '-' *20 + points.to_s + '-' * 20
+      @comparisons_hash[compared_user.id] = points
     end
+    p @comparisons_hash
   end
 end
