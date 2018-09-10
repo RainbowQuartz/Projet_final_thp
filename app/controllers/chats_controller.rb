@@ -1,3 +1,4 @@
+# Secure random number generator interface ruby library
 require 'securerandom'
 
 class ChatsController < ApplicationController
@@ -41,7 +42,7 @@ private
   end
 
   def require_login
-    redirect_to new_session_path unless logged_in?
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end
