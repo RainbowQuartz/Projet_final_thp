@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
 
+  get 'interests/edit'
+  post 'interests/edit', to: 'interests#update'
   devise_for :users, controllers: {
-                                    sessions: 'users/sessions', 
+                                    sessions: 'users/sessions',
                                     registrations: 'users/registrations'
                                    }
 
   root to: 'static_pages#home'
   get 'contact', to: 'static_pages#contact', as: 'contact'
   get 'about', to: 'static_pages#about', as: 'about'
-  
+
   resources :users do
     resources :chats, only: [:index, :show, :create]
     member do
@@ -22,4 +24,5 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
+
 end

@@ -1,0 +1,8 @@
+<%= form_for(current_user.interests.build, url: interests_edit_path) do |f| %>
+    <div class="field">
+      <%= f.label "Choisissez vos centres d'interets" %><br />
+      <%= collection_select(:interests, :id, Interest.all, :id, :name, {}, { :multiple => true}) %>
+    </div>
+  <%= f.submit %>
+
+<% end %>
