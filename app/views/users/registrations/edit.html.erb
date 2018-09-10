@@ -53,9 +53,9 @@
                                       </div>
 
                                       <div class="link-menu link-menu--style-3 py-4 ">
-                                        <%= link_to 'Paramètres général', current_user %>
-                                        <%= link_to 'Préférences', edit_user_registration_path, :class =>"active" %>
-                                        <%= link_to 'Langues', following_user_path(current_user) %>
+                                        <%= link_to 'Paramètres général', edit_user_registration_path, :class =>"active" %>
+                                        <%= link_to 'Préférences', preferences_user_path(current_user[:id])%>
+                                        <%= link_to 'Langues', langues_user_path(current_user[:id]) %>
                                       </div>
           <!-- Account settings -->
           <div class="row">
@@ -86,52 +86,8 @@
                     </div>
                   </div>
                 </div>
+
                 <hr class="mt-0 mb-0">
-                <!-- Interests info-->
-                <%= form_for(@user) do |f| %>
-                  <%= fields_for(@interest_user) do |iu| %>
-                    <div class="field">
-                      <%= iu.label "Choisissez vos centres d'interets" %><br />
-                      <%= collection_select(:interests, :id, Interest.all, :id, :name, {}, { :multiple => true}) %>
-                    </div>
-                  <% end %>
-                  <%= f.submit %>
-                <% end %>
-                <hr class="mt-0 mb-0">
-                <!-- Account info -->
-                <div class="card no-border bg-transparent">
-                  <div class="card-title px-0 pb-0 no-border">
-                    <h3 class="heading heading-6 strong-600">
-                      Choisissez vos centres d'intérêts
-                    </h3>
-                    <p class="mt-1 mb-0">
-                      Choisissez dans la liste.
-                    </p>
-                  </div>
-                  <div class="card-body px-0">
-                    
-                    <div class="row">
-                      <div class="col-md-6 col-lg-4">
-                        <div class="form-group">
-                          <%= form_for(@user) do |f| %>
-                          <%= fields_for(@interest_user) do |iu| %>
-                           <div class="field">
-                      <%= collection_select(:interests, :id, Interest.all, :id, :name, {}, { :multiple => true})%>
-                    </div>
-                  <% end %>
-                  <%= f.submit %>
-                <% end %>
-                          <select class="form-control form-control-lg"> <%= form_for(@user) do |f| %>
-                          <%= fields_for(@interest_user) do |iu| %>
-                            <option value=""><%= collection_select(:interests, :id, Interest.all, :id, :name, {}, { :multiple => true})%></option>
-                            <% end %>
-                  <%= f.submit %>
-                <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="mt-0 mb-0">
                   <!-- Change password -->
                   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                     <%= devise_error_messages! %>
