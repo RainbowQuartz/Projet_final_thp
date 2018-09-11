@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   before_action :suggestions, only: [:home]
+  attr_accessor :comparisons_hash
 
   def home
   end
