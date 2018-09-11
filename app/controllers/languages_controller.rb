@@ -3,6 +3,7 @@ class LanguagesController < ApplicationController
     @language = Language
     @wanted_languages = WantedLanguage.new
     @spoken_languages = SpokenLanguage.new
+    @user = current_user
   end
 
   def create
