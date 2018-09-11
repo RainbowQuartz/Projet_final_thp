@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		if @user.avatar.attached?
 		  @user.avatar.purge
 		end
-		@user.avatar.attach(params.require(:user)[:avatar])
+		@user.avatar.attach(params.require(:user).permit![:avatar])
     redirect_to edit_user_registration_path
   end
 
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.avatar.attached?
       @user.avatar.purge
+      redirect_to edit_user_registration_path
     end
-    redirect_to edit_user_registration_path
   end
 
   def following
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
       if User.match?(current_user, user)
       list << user 
       end
-     end 
+    end 
     return list 
   end
 
