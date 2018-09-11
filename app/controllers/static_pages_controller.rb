@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
         @comparisons_hash[compared_user.id] = points
       end
       p @comparisons_hash
-      @comparisons_hash.sort_by { |_key, value| value }.to_h
+      @comparisons_hash = @comparisons_hash.sort_by { |_key, value| -value }.to_h
       p @comparisons_hash
     end
   end
