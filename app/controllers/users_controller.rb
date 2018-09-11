@@ -7,14 +7,19 @@ class UsersController < ApplicationController
 
 
   def update
-    p "=====params====="
-    p params
-    p "------end-------"
 		@user = current_user
 		if @user.avatar.attached?
 		  @user.avatar.purge
 		end
 		@user.avatar.attach(params.require(:user)[:avatar])
+    redirect_to edit_user_registration_path
+  end
+
+  def delete
+    @user = current_user
+    if @user.avatar.attached?
+      @user.avatar.purge
+    end
     redirect_to edit_user_registration_path
   end
 
