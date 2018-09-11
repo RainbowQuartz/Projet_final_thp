@@ -70,6 +70,14 @@
                   </div>
                 </div>
                 <hr class="mt-0 mb-0">
+                <div class="card no-border bg-transparent">
+                  <div class="card-title px-0 pb-0 no-border">
+                    <h3 class="heading heading-6 strong-600">Supprimer sa photo de profil</h3>
+                    <p class="mt-1 mb-0">Pour supprimer votre photo de profil, cliquez sur le bouton ci dessous.</p><br>
+                    <%= button_to "Supprimer ma photo", :class =>"btn btn-base-1", method: :delete %>
+                    <%= link_to "Retour", :back %>
+                  </div>
+                <hr class="mt-0 mb-0">
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                   <%= devise_error_messages! %>
                   <div class="card no-border bg-transparent">
@@ -106,14 +114,13 @@
                     </div>
                   </div>
                 <% end %>
-                <%= link_to "Back", :back %>
                 <hr class="mt-0 mb-0">
                 <div class="card no-border bg-transparent">
                   <div class="card-title px-0 pb-0 no-border">
                     <h3 class="heading heading-6 strong-600">Supprimer son compte</h3>
                     <p class="mt-1 mb-0">Pour supprimer votre compte, cliquez sur le bouton ci dessous.</p><br>
-                    <%= button_to "Supprimer mon compte", registration_path(resource_name), :class =>"btn btn-base-1", data: { confirm: "Vous allez nous manquer... Êtes vous sur ?" }, method: :delete %>
-                    <%= link_to "Back", :back %>
+                    <%= button_to "Supprimer mon compte", registration_path(resource_name), :class =>"btn btn-base-1", data: { confirm: "Vous allez nous manquer... Êtes-vous sûr ?" }, method: :delete %>
+                    <%= link_to "Retour", :back %>
                   </div>
                 </div>
               </div>
