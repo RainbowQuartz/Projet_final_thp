@@ -56,17 +56,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
- # private 
+ # private
 
   def list_match
     list = []
-    User.all.each do |user|    
+    User.all.each do |user|
       if User.match?(current_user, user) && user != current_user
-      list << user 
+      list << user
       end
-     end 
-    return list 
+     end
+    return list
   end
 
 end
-

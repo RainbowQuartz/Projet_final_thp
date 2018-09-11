@@ -12,3 +12,29 @@
   border: 1px solid rgba(172,172,172,1);
   background-color: #eaeaea;
 }
+
+/* chat */
+
+.chat-name{
+  padding-left: 0px;
+}
+
+.chat-name li{
+  list-style:  none;
+  border-bottom: 0.3px solid rgba(172,172,172,1);
+}
+
+.chat-name li a{
+  padding-left: 5px;
+}
+
+button {
+    background-color: #2255AD;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
