@@ -49,14 +49,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                      <div class="link-menu link-menu--style-3 py-4 border-bottom">
-                                        <%= link_to 'Mon profil',  current_user, :class =>"active" %>
-                                        <%= link_to 'Modifier mon profil', edit_user_registration_path  %>
-                                        <%= link_to 'Following', following_user_path(current_user) %>
-                                        <%= link_to 'Followers', followers_user_path(current_user) %>
-                                      </div>
 
-
+           <div class="link-menu link-menu--style-3 py-4 border-bottom">
+            <%= link_to 'Mon profil', current_user%>
+            <%= link_to 'Modifier mon profil', current_user %>
+            <%= link_to 'Mes Matchs', match_user_path(current_user) %>
+            <%= link_to 'Following', following_user_path(current_user) %>
+          </div>
 
                                             <!-- Account settings -->
                                             <div class="row">
@@ -79,7 +78,7 @@
 
                                                         <!-- Account info -->
                                                         <div class="main-content">
-                                            <!-- Page title -->
+                                            <!-- Languages section -->
                                             <div class="page-title">
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-6 col-12">
@@ -89,10 +88,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
-                                            <!-- Languages -->
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="card no-border bg-transparent">
@@ -102,13 +97,13 @@
                                                             </h3>
                                                         </div>
                                                         <div class="card-body px-0">
-                                                            
-                                                            <div>
-                                                            	<ul class="checkbox">
-                                                            		<li>Français</li>
-                                                            		<li>Anglais</li>
-                                                            	</ul>
-                                                            </div>                  
+                                                            <% Language.find(@user.spoken_languages.ids).each do |language| %>
+                                                                <div>
+                                                                	<ul class="checkbox">
+                                                                		<li><%= language.name %></li>
+                                                                	</ul>
+                                                                </div>  
+                                                            <% end %>                
                                                         </div>
                                                     </div>
                                                 </div>
@@ -121,13 +116,13 @@
                                                             </h3>
                                                         </div>
                                                         <div class="card-body px-0">
-                                                            
-                                                            <div>
-                                                            	<ul class="checkbox">
-                                                            		<li>Français</li>
-                                                            		<li>Anglais</li>
-                                                            	</ul>
-                                                            </div>
+                                                            <% Language.find(@user.wanted_languages.ids).each do |language| %>
+                                                                <div>
+                                                                    <ul class="checkbox">
+                                                                        <li><%= language.name %></li>
+                                                                    </ul>
+                                                                </div>  
+                                                            <% end %> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,7 +130,7 @@
                                         </div>
                                                         <hr class="mt-0 mb-0">
 
-                                                        <!-- Change password -->
+                                                        <!-- Interests section  -->
                                                         <div class="card no-border bg-transparent">
                                                             <div class="card-title px-0 pb-0 no-border">
                                                                 <h3 class="heading heading-6 strong-600">
@@ -143,20 +138,21 @@
                                                                 </h3>
                                                             </div>
                                                             <div class="card-body px-0">
-                                                                <div class="row">
-                                                                	<div class="col-md-6 col-lg-4">
-                                                                        <span class="badge badge-lg badge-primary">Music</span>
-                                                                        <span class="badge badge-lg badge-primary">Music</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-4"> 
+                                                    <% @user.interests.each do |interest| %>           
+                                                        <span class="badge badge-lg badge-primary"><%= interest.name %></span>
+                                                    <% end %>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
