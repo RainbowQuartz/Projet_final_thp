@@ -31,28 +31,31 @@
    						</div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="main-content">
-                    <!-- Page title -->
-                        <div class="page-title">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 col-12">
-                                    <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
-                                        <a href="#" class="link text-underline--none">
-                                            <i class="ion-ios-arrow-back"></i>Profile 
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="col-lg-6 col-12">
-                                </div>
-                            </div>
-                        </div>
-                    <div class="link-menu link-menu--style-3 py-4 border-bottom">
-                    <%= link_to 'Mon profil', current_user%>
-                    <%= link_to 'Modifier mon profil', edit_user_registration_path %>
-                    <%= link_to 'Mes Matchs', match_user_path(current_user) %>
-                    <%= link_to 'Following', following_user_path(current_user) %>
-                  </div>
+
+                                    <div class="col-lg-8">
+                                        <div class="main-content">
+                                            <!-- Page title -->
+                                            <div class="page-title">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-6 col-12">
+                                                        <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
+                                                            <a href="#" class="link text-underline--none">
+                                                                <i class="ion-ios-arrow-back"></i>Profile 
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                    <div class="col-lg-6 col-12">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      <div class="link-menu link-menu--style-3 py-4 border-bottom">
+                                        <%= link_to 'Mon profil',  current_user, :class =>"active" %>
+                                        <%= link_to 'Modifier mon profil', edit_user_registration_path  %>
+                                        <%= link_to 'Following', following_user_path(current_user) %>
+                                        <%= link_to 'Followers', followers_user_path(current_user) %>
+                                      </div>
+
 
                                             <!-- Account settings -->
                                             <div class="row">
@@ -75,7 +78,7 @@
 
                                                         <!-- Account info -->
                                                         <div class="main-content">
-                                            <!-- Languages section -->
+                                            <!-- Page title -->
                                             <div class="page-title">
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-6 col-12">
@@ -85,6 +88,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+                                            <!-- Languages -->
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="card no-border bg-transparent">
@@ -94,13 +101,13 @@
                                                             </h3>
                                                         </div>
                                                         <div class="card-body px-0">
-                                                            <% Language.find(@user.spoken_languages.ids).each do |language| %>
-                                                                <div>
-                                                                	<ul class="checkbox">
-                                                                		<li><%= language.name %></li>
-                                                                	</ul>
-                                                                </div>  
-                                                            <% end %>                
+                                                            
+                                                            <div>
+                                                            	<ul class="checkbox">
+                                                            		<li>Français</li>
+                                                            		<li>Anglais</li>
+                                                            	</ul>
+                                                            </div>                  
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,13 +120,13 @@
                                                             </h3>
                                                         </div>
                                                         <div class="card-body px-0">
-                                                            <% Language.find(@user.wanted_languages.ids).each do |language| %>
-                                                                <div>
-                                                                    <ul class="checkbox">
-                                                                        <li><%= language.name %></li>
-                                                                    </ul>
-                                                                </div>  
-                                                            <% end %> 
+                                                            
+                                                            <div>
+                                                            	<ul class="checkbox">
+                                                            		<li>Français</li>
+                                                            		<li>Anglais</li>
+                                                            	</ul>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -127,7 +134,7 @@
                                         </div>
                                                         <hr class="mt-0 mb-0">
 
-                                                        <!-- Interests section  -->
+                                                        <!-- Change password -->
                                                         <div class="card no-border bg-transparent">
                                                             <div class="card-title px-0 pb-0 no-border">
                                                                 <h3 class="heading heading-6 strong-600">
@@ -135,21 +142,20 @@
                                                                 </h3>
                                                             </div>
                                                             <div class="card-body px-0">
-                                            <div class="row">
-                                                <div class="col-md-6 col-lg-4"> 
-                                                    <% @user.interests.each do |interest| %>           
-                                                        <span class="badge badge-lg badge-primary"><%= interest.name %></span>
-                                                    <% end %>
+                                                                <div class="row">
+                                                                	<div class="col-md-6 col-lg-4">
+                                                                        <span class="badge badge-lg badge-primary">Music</span>
+                                                                        <span class="badge badge-lg badge-primary">Music</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                    </section>
