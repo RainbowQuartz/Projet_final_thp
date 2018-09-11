@@ -4,14 +4,11 @@ class InterestsController < ApplicationController
     @interest = Interest.first
     @user = User.find(current_user.id)
     @all_interests = Interest.all
-    @interest_user = @user.interests.build
-    @user = current_user
-
+    @interest_user = @user.interests.build   
   end
 
   def update
     p params
-
     @user = current_user
     params[:interests][:id].each do |interest|
       if !interest.empty?
