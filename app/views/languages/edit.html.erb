@@ -1,3 +1,6 @@
+<% content_for(:title) do %>
+<%= "Speak&Up | Editer mes langues" %>
+<% end %>
 <section class="slice-sm sct-color-1">
     <div class="profile">
         <div class="container">
@@ -17,14 +20,14 @@
                   <!-- Profile details -->
                   <div class="profile-details">
                       <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
-                      
+
                       <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
                   </div>
 
                   <!-- Profile connect -->
-                  <div class="profile-connect mt-4">  
+                  <div class="profile-connect mt-4">
                       <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
-                  </div>  
+                  </div>
              	</div>
                </div>
              </div>
@@ -42,21 +45,19 @@
 				</div>
 			</div>
 			<div class="link-menu link-menu--style-3 py-4 border-bottom">
-				<%= link_to 'Mon profil', current_user %>
-				<%= link_to 'Modifier mon profil', edit_user_registration_path, :class =>"active" %>
-				<%= link_to 'Following', following_user_path(current_user) %>
-				<%= link_to 'Followers', followers_user_path(current_user) %>
-					
+        <%= link_to 'Mon profil', current_user%>
+        <%= link_to 'Modifier mon profil', edit_user_registration_path, class: 'active' %>
+        <%= link_to 'Mes Matchs', match_user_path(current_user) %>
+        <%= link_to 'Following', following_user_path(current_user) %>			
 			</div>
 			<div class="link-menu link-menu--style-3 py-4 ">
                 <%= link_to 'Paramètres général', edit_user_registration_path%>
-                <%= link_to 'Préférences', interests_edit_path(current_user[:id])%>
-                <%= link_to 'Langues', languages_edit_path(current_user[:id]), :class =>"active" %>
+                <%= link_to 'Préférences', interests_edit_path%>
+                <%= link_to 'Langues', languages_edit_path, :class =>"active" %>
             </div>
 			<!-- Account settings -->
 			<div class="row">
 				<div class="col-lg-12">
-					<form class="form-default" data-toggle="validator" role="form">
 						<!-- Interests info-->
 						<div class="card no-border bg-transparent">
 							<div class="card-title px-0 pb-0 no-border">
@@ -64,7 +65,7 @@
 								</h3>
 							</div>
 							<div class="card-body px-0">
-								<%= form_for(current_user, url: languages_edit_path, method: :create) do |f| %>
+								<%= form_for(current_user, url: languages_edit_path, method: :post) do |f| %>
 								<div class="field">
 									<p class="mt-1 mb-0">
 								Langues en apprentissage
@@ -81,12 +82,11 @@
 								<% end %>
 							</div>
 						</div>
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="mt-0 mb-0">
-                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

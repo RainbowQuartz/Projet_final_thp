@@ -42,10 +42,6 @@ class UsersController < ApplicationController
     @title = "Mes matchs"
     @user = User.find(params[:id])
     @users = list_match
-    puts "========@users========="
-    puts @users
-    puts @users.inspect
-    puts "----------end----------"
   end
 
   def preferences
@@ -56,17 +52,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
- # private 
+ # private
 
   def list_match
     list = []
-    User.all.each do |user|    
-      if User.match?(current_user, user)
-      list << user 
+    User.all.each do |user|
+      if User.match?(current_user, user) && user != current_user
+        list << user 
       end
     end 
     return list 
   end
 
 end
-

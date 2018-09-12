@@ -1,4 +1,6 @@
-<% provide(:title, @title) %>
+<% content_for(:title) do %>
+<%= "Speak&Up | Mes connections" %>
+<% end %>
 <section class="slice-sm sct-color-1">
   <div class="profile">
     <div class="container">
@@ -45,7 +47,7 @@
           <div class="link-menu link-menu--style-3 py-4 border-bottom">
             <%= link_to 'Mon profil', current_user %>
             <%= link_to 'Modifier mon profil', current_user %>
-            <%= link_to 'Mes Matchs', match_user_path(current_user) %>
+            <%= link_to 'Mes Matchs', match_user_path(current_user), class: 'active' %>
             <%= link_to 'Following', following_user_path(current_user) %>
           </div>
 
@@ -58,14 +60,14 @@
                         <div class="profile-picture profile-picture--style-2">
                           <img src="../../assets/images/prv/people/person-1.jpg" >
                         </div>
-        
+
                       <div class="block-body text-center">
                         <h3 class="heading heading-6 strong-600 mb-0 mb-0"><%= user.first_name %></h3>
                         <h3 class="heading heading-light heading-sm strong-300"><%= user.city %>, <%= user.country %></h3>
                         <div class="aux-info-wrapper border-top">
                           <ul class="aux-info">
                             <li class="heading strong-400 text-center">
-                              <span class="d-block strong-600">Parle : Anglais</span>  
+                              <span class="d-block strong-600">Parle : Anglais</span>
                               <span class="d-block strong-600">Apprends à parler : Français</span>
                             </li>
                           </ul>
