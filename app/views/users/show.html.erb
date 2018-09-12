@@ -1,3 +1,6 @@
+<% content_for(:title) do %>
+<%= "Speak&Up | " + @user.first_name + " " + @user.last_name %>
+<% end %>
 <section class="slice-sm sct-color-1">
     <div class="profile">
         <div class="container">
@@ -23,11 +26,12 @@
 					            <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
 					        </div>
 
+
 					        <!-- Profile connect -->
 					        <div class="profile-connect mt-4">	
 					            <p><%= render 'follow_form' %></p>
 					            <p><%= render 'send_message' %></p>
-                            </div>  
+                            </div>
    						</div>
                 </div>
             </div>
@@ -39,7 +43,7 @@
                                 <div class="col-lg-6 col-12">
                                     <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
                                         <a href="#" class="link text-underline--none">
-                                            <i class="ion-ios-arrow-back"></i>Profile 
+                                            <i class="ion-ios-arrow-back"></i>Profile
                                         </a>
                                     </h2>
                                 </div>
@@ -68,6 +72,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- Account info -->
                                 <div class="main-content">
                                 <!-- Languages section -->
