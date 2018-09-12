@@ -45,7 +45,7 @@
             <%= link_to 'Mon profil', current_user %>
             <%= link_to 'Modifier mon profil', current_user %>
             <%= link_to 'Mes Matchs', match_user_path(current_user) %>
-            <%= link_to 'Following', following_user_path(current_user) %>
+            <%= link_to 'Following', following_user_path(current_user), class: 'active' %>
           </div>
 
           <!-- User follower and following -->
