@@ -95,8 +95,8 @@
                                                 <div class="card-body px-0">
                                                     <div>
                                                         <ul class="checkbox">
-                                                            <% Language.find(@user.spoken_languages.ids).each do |language| %>
-                                                                <li><%= language.name %></li>
+                                                            <% @user.spoken_languages.each do |language| %>
+                                                                <li><%= Language.find(language.language_id).name %></li>
                                                             <% end %>
                                                         </ul>
                                                     </div>
@@ -113,9 +113,9 @@
                                                 <div class="card-body px-0">
                                                     <div>
                                                         <ul class="checkbox">
-                                                            <% Language.find(@user.wanted_languages.ids).each do |language| %>
-                                                                <li><%= language.name %></li>
-                                                            <% end %>
+                                                          <% @user.wanted_languages.each do |language| %>
+                                                              <li><%= Language.find(language.language_id).name %></li>
+                                                          <% end %>
                                                         </ul>
                                                     </div>
                                                 </div>
