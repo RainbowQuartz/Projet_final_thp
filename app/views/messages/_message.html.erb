@@ -1,1 +1,11 @@
-<p><%= message.user.first_name %>: <%=message.content%></p>
+<% if message.user.id != current_user.id %>
+<p class="message">
+  <%= message.user.first_name %>: <%=message.content%><br>
+  <%= message.created_at %>
+</p>
+<% else %>
+<p class="message darker">
+  <%= message.user.first_name %>: <%=message.content%><br>
+  <%=  message.created_at %>
+</p>
+<% end %>

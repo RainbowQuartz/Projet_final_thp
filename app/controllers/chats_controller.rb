@@ -1,5 +1,6 @@
 # Secure random number generator interface ruby library
 require 'securerandom'
+include ::ApplicationHelper
 
 class ChatsController < ApplicationController
   before_action :authenticate_user!
@@ -7,6 +8,8 @@ class ChatsController < ApplicationController
   def index
     chats = current_user.chats
     @existing_chats_users = current_user.existing_chats_users
+    @users = list_match
+    @user = current_user
   end
 
   def create
@@ -17,7 +20,7 @@ class ChatsController < ApplicationController
       @chat.subscriptions.create(user_id: current_user.id)
       @chat.subscriptions.create(user_id: @other_user.id)
     end
-    redirect_to user_chat_path(current_user, @chat,  :other_user => @other_user.id) 
+    redirect_to user_chat_path(current_user, @chat,  :other_user => @other_user.id)
   end
 
   def show
@@ -25,6 +28,7 @@ class ChatsController < ApplicationController
     @chat = Chat.find_by(id: params[:id])
     @message = Message.new
   end
+
 
 
 private
