@@ -17,6 +17,6 @@ class InterestsController < ApplicationController
         @user.interests << Interest.find(interest)
       end
     end
-    redirect_to root_path
+    redirect_to current_user
   end
 end
