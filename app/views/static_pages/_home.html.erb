@@ -4,19 +4,19 @@
 <!--    BANNER        -->
 <div class="image">
     <%= image_tag 'background-2.jpg', :class => 'banner-img2'%>
-    <div class="centered">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <h1 class="heading display-4 strong-400 c-white">
-          Rencontrer du monde, échanger, s'améliorer.
-        </h1>
+    
+    <div class=" container centered-2">
+        <div class= "row">
+            <h1 class="heading display-4 strong-400 c-white">
+              Rencontrer, échanger, s'améliorer.
+            </h1>
 
-        <div class="lead mt-3 mb-3 c-white">
-            Speak&UP
+            <div class="lead mt-3 mb-3 c-white">
+                Speak&UP est la première plateforme de rencontre uniquement basée sur l'apprentissage des langues.
+            </div>
         </div>
     </div>
 </div>
-
 
 <section class="slice sct-color-1">
   <div class="container">
@@ -33,10 +33,10 @@
                         <img src="../../assets/images/prv/people/person-1.jpg" >
                       </div>
                       <div class="block-body text-center">
-                        <h3 class="heading heading-6 strong-600 mb-0 mb-0">
-                          <%= User.find(key).first_name + User.find(key).last_name %>
+                        <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
+                          <%= "#{User.find(key).first_name} #{User.find(key).last_name}" %>
                         </h3>
-                        <h3 class="heading heading-light heading-sm strong-300">
+                        <h3 class="heading heading-light heading-sm strong-300 c-black">
                           <%= User.find(key).city %>
                         </h3>
                         <div class="aux-info-wrapper border-top">
@@ -57,7 +57,7 @@
                             </li>
                           </ul>
                         </div>
-                        <p><%= render 'users/follow_form', class: 'btn btn-styled btn-base-1 btn-outline btn-circle px-4 mt-2' %></p>
+                        <p><%= link_to 'Voir profil', User.find(key) %>
                       </div>
                     </div>
                   </div>
