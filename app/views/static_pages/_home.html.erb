@@ -21,10 +21,10 @@
 <section class="slice sct-color-1">
   <div class="container">
     <h3>Quelques profils succeptibles de vous interesser :</h3>
-      <% @comparisons_hash.each do |key, value| %>
         <div class="widget mt-4">
           <div class="row-wrapper">
             <div class="row cols-md-space cols-sm-space cols-xs-space">
+              <% @comparisons_hash.each do |key, value| %>
               <div class="col-lg-4">
                 <div class="block block--style-3">
                   <div class="profile-picture profile-picture--style-2">
@@ -43,13 +43,13 @@
                           <span class="d-block strong-600">
                             Parle :
                             <% User.find(key).spoken_languages.each do |language| %>
-                              <%= Language.find(language.language_id).name %>
+                              <%= "#{Language.find(language.language_id).name}, " %>
                             <% end %>
                           </span>
                           <span class="d-block strong-600">
                             Apprends à parler :
                             <% User.find(key).wanted_languages.each do |language| %>
-                              <%= Language.find(language.language_id).name %>
+                              <%= "#{Language.find(language.language_id).name}, "%>
                             <% end %>
                            </span>
                         </li>
