@@ -1,71 +1,68 @@
 <% content_for(:title) do %>
-<%= "Speak&Up | Accueil" %>
+  <%= "Speak&Up | Accueil" %>
 <% end %>
-<!--    BANNER        -->
 <div class="image">
-    <%= image_tag 'background-2.jpg', :class => 'banner-img2'%>
-    
-    <div class=" container centered-2">
-        <div class= "row">
-            <h1 class="heading display-4 strong-400 c-white">
-              Rencontrer, échanger, s'améliorer.
-            </h1>
-
-            <div class="lead mt-3 mb-3 c-white">
-                Speak&UP est la première plateforme de rencontre uniquement basée sur l'apprentissage des langues.
-            </div>
+  <%= image_tag 'background-2.jpg', :class => 'banner-img2'%>  
+  <div class=" container centered-2">
+    <div class= "row">
+      <h1 class="heading display-4 strong-400 c-white">Rencontrer, échanger, s'améliorer.</h1>
+        <div class="lead mt-3 mb-3 c-white">Speak&UP est la première plateforme de rencontre uniquement basée sur l'apprentissage des langues.
         </div>
+      </div>
     </div>
-</div>
-
-<section class="slice sct-color-1">
-  <div class="container">
-    <h3>Quelques profils succeptibles de vous interesser :</h3>
-        <div class="widget mt-4">
-          <div class="row-wrapper">
-            <div class="row cols-md-space cols-sm-space cols-xs-space">
-              <% @comparisons_hash.each do |key, value| %>
-                <% if key == current_user.id %>
-                <% else %>
-                  <div class="col-lg-4">
-                    <div class="block block--style-3">
-                      <div class="profile-picture profile-picture--style-2">
-                        <img src="../../assets/images/prv/people/person-1.jpg" >
+  </div>
+  <section class="slice sct-color-1">
+    <div class="container">
+      <h3>Quelques profils succeptibles de vous interesser :</h3>
+      <div class="widget mt-4">
+        <div class="row-wrapper">
+          <div class="row cols-md-space cols-sm-space cols-xs-space">
+            <% @comparisons_hash.each do |key, value| %>
+              <% if key == current_user.id %>
+              <% else %>
+                <div class="col-lg-4">
+                  <div class="block block--style-3">
+                    <div class="profile-picture profile-picture--style-2">
+                      <% if User.find(key).avatar.attached? %>
+                        <%= image_tag User.find(key).avatar, class: "img-center"%>
+                      <% else %>
+                        <%= image_tag "profil.jpg", class: "img-center"%>
+                      <% end %>
+                    </div>
+                    <div class="block-body text-center">
+                      <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
+                        <%= "#{User.find(key).first_name} #{User.find(key).last_name}" %>
+                      </h3>
+                      <h3 class="heading heading-light heading-sm strong-300 c-black">
+                        <%= User.find(key).city %>
+                      </h3>
+                      <div class="aux-info-wrapper border-top">
+                        <ul class="aux-info">
+                          <li class="heading strong-400 text-center">
+                            <span class="d-block strong-600">
+                              Parle :
+                              <% User.find(key).spoken_languages.each do |language| %>
+                                <%= "#{Language.find(language.language_id).name}, " %>
+                              <% end %>
+                            </span>
+                            <span class="d-block strong-600">
+                              Apprends à parler :
+                              <% User.find(key).wanted_languages.each do |language| %>
+                                <%= "#{Language.find(language.language_id).name}, "%>
+                              <% end %>
+                            </span>
+                          </li>
+                        </ul>
                       </div>
-                      <div class="block-body text-center">
-                        <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
-                          <%= "#{User.find(key).first_name} #{User.find(key).last_name}" %>
-                        </h3>
-                        <h3 class="heading heading-light heading-sm strong-300 c-black">
-                          <%= User.find(key).city %>
-                        </h3>
-                        <div class="aux-info-wrapper border-top">
-                          <ul class="aux-info">
-                            <li class="heading strong-400 text-center">
-                              <span class="d-block strong-600">
-                                Parle :
-                                <% User.find(key).spoken_languages.each do |language| %>
-                                  <%= "#{Language.find(language.language_id).name}, " %>
-                                <% end %>
-                              </span>
-                              <span class="d-block strong-600">
-                                Apprends à parler :
-                                <% User.find(key).wanted_languages.each do |language| %>
-                                  <%= "#{Language.find(language.language_id).name}, "%>
-                                <% end %>
-                              </span>
-                            </li>
-                          </ul>
-                        </div>
-                        <p><%= link_to 'Voir profil', User.find(key) %>
-                      </div>
+                      <p><%= link_to 'Voir profil', User.find(key) %>
                     </div>
                   </div>
-                <% end %>
+                </div>
               <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </section>
