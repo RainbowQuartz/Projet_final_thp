@@ -1,4 +1,4 @@
-<div>
+<div class="messenger">
   <h4>Discussion avec <%= @other_user.first_name %> :</h4>
   <% if @chat.messages.any? %>
     <div id="messages">
@@ -9,14 +9,14 @@
     </div>
   <%end%>
 
-</div>
-<%= render partial: 'messages/message_form', locals: {message: @message, chat: @chat}%>
-</div>
-<script>
-  createMessageChannel();
-  // app/assets/javascripts/channels/messages.js
-  messageForm();
-  // app/assets/javascripts/messages_form.js
-</script>
+  <%= render partial: 'messages/message_form', locals: {message: @message, chat: @chat}%>
+  </div>
+  <script>
+    createMessageChannel();
+    // app/assets/javascripts/channels/messages.js
+    messageForm();
+    // app/assets/javascripts/messages_form.js
+  </script>
 
-<%= link_to "Retour", user_chats_path(current_user), class: 'btn btn-styled btn-base-1 btn-circle' %>
+  <%= link_to "Retour", user_chats_path(current_user), class: 'btn btn-styled btn-base-1 btn-circle' %>
+</div>
