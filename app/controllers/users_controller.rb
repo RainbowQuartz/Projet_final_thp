@@ -9,10 +9,18 @@ class UsersController < ApplicationController
   def update
 		@user = current_user
 		if @user.avatar.attached?
-			@user.avatar.purge
+		  @user.avatar.purge
 		end
-		@user.avatar.attach(params.require(:user)[:avatar])
-    redirect_to root_path
+		@user.avatar.attach(params.require(:user).permit![:avatar])
+    redirect_to edit_user_registration_path
+  end
+
+  def delete
+    @user = current_user
+    if @user.avatar.attached?
+      @user.avatar.purge
+      redirect_to edit_user_registration_path
+    end
   end
 
   def following
@@ -27,6 +35,33 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
+  end
+
+
+  def match
+    @title = "Mes matchs"
+    @user = User.find(params[:id])
+    @users = list_match
+  end
+
+  def preferences
+    @user = User.find(params[:id])
+  end
+
+  def langues
+    @user = User.find(params[:id])
+  end
+
+ # private
+
+  def list_match
+    list = []
+    User.all.each do |user|
+      if User.match?(current_user, user) && user != current_user
+        list << user 
+      end
+    end 
+    return list 
   end
 
 end

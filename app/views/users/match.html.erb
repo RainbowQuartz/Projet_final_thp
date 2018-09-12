@@ -1,0 +1,90 @@
+<% content_for(:title) do %>
+<%= "Speak&Up | Mes connections" %>
+<% end %>
+<section class="slice-sm sct-color-1">
+  <div class="profile">
+    <div class="container">
+      <div class="row cols-xs-space cols-sm-space cols-md-space">
+        <div class="col-lg-4">
+          <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
+            <div class="widget">
+        <!-- Profile picture -->
+              <div class="profile-picture profile-picture--style-2">
+                <% if @user.avatar.attached? %>
+                  <%= image_tag @user.avatar, :class=> "img-center"%>
+                    <% else %>
+                      <%= image_tag "profil.jpg", :class=> "img-center"%>
+                    <% end %>
+                    <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
+              </div>
+
+        <!-- Profile details -->
+              <div class="profile-details">
+                <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+                <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="main-content">
+          <!-- Page title -->
+          <% provide(:title, @title) %>
+            <div class="row align-items-center">
+              <div class="col-lg-6 col-12">
+                <h2 class="heading heading-6 strong-600 mb-0 text-capitalize strong-500 mb-0">
+                    <a href="#" class="link text-underline--none">
+                      <i class="ion-ios-arrow-back"></i> Voici tes matchs, commence à échanger dès maintenant
+                    </a>
+                </h2>
+              </div>
+              <div class="col-lg-6 col-12">
+              </div>
+            </div>
+          </div>
+
+          <div class="link-menu link-menu--style-3 py-4 border-bottom">
+            <%= link_to 'Mon profil', current_user %>
+            <%= link_to 'Modifier mon profil', edit_user_registration_path %>
+            <%= link_to 'Mes Matchs', match_user_path(current_user), class: 'active' %>
+            <%= link_to 'Following', following_user_path(current_user) %>
+          </div>
+
+          <!-- User follower and following -->
+                <div class="row cols-md-space cols-sm-space cols-xs-space">
+                  <% if @users.any? %>
+                    <% @users.each do |user| %>
+                    <div class="col-lg-4">
+                      <div class="block block--style-3">
+                        <div class="profile-picture profile-picture--style-2">
+                          <img src="../../assets/images/prv/people/person-1.jpg" >
+                        </div>
+
+                      <div class="block-body text-center">
+                        <h3 class="heading heading-6 strong-600 mb-0 mb-0"><%= user.first_name %></h3>
+                        <h3 class="heading heading-light heading-sm strong-300"><%= user.city %>, <%= user.country %></h3>
+                        <div class="aux-info-wrapper border-top">
+                          <ul class="aux-info">
+                            <li class="heading strong-400 text-center">
+                              <span class="d-block strong-600">Parle : Anglais</span>
+                              <span class="d-block strong-600">Apprends à parler : Français</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                        <%= link_to 'Voir le profil', user %>
+                        </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</section>
+<% end -%>
