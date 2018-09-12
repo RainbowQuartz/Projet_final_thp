@@ -13,8 +13,7 @@ class InterestsController < ApplicationController
     p params
     params[:interests][:id].each do |interest|
       if !interest.empty?
-        if current_user.interests.ids.include?(interest)
-        else
+        if !current_user.interests.ids.include?(interest.to_i)
           current_user.interests << Interest.find(interest)
         end
       end
