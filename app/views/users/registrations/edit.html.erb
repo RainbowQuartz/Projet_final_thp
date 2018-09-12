@@ -52,7 +52,7 @@
                                         <%= link_to 'Followers', followers_user_path(current_user) %>
                                       </div>
 
-                                      <div class="link-menu link-menu--style-3 py-4 ">
+                                      <div class="link-menu link-menu--style-3 py-4">
                                         <%= link_to 'Paramètres général', edit_user_registration_path, :class =>"active" %>
                                         <%= link_to 'Préférences', interests_edit_path(current_user[:id])%>
                                         <%= link_to 'Langues', languages_edit_path(current_user[:id]) %>
@@ -127,7 +127,7 @@
                       </div>
                     </div>
                   <% end %>
-                  <%= link_to "Back", :back %>
+                  
                   <hr class="mt-0 mb-0">
                   <!-- Delete account -->
                   <div class="card no-border bg-transparent">
@@ -139,7 +139,6 @@
                         Pour supprimer votre compte, cliquez sur le bouton ci dessous.
                       </p> <br>
                       <%= button_to "Supprimer mon compte", registration_path(resource_name), :class =>"btn btn-base-1", data: { confirm: "Vous allez nous manquer... Êtes vous sur ?" }, method: :delete %>
-                      <%= link_to "Back", :back %>
                     </div>
                   </div>
                 </div>
