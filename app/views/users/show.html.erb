@@ -7,8 +7,8 @@
                         <div class="widget">
         <!-- Profile picture -->
 					       <div class="profile-picture profile-picture--style-2">
-                                <% if @user.avatar.attached? %>
-                                    <%= image_tag @user.avatar, class: "img-center"%>
+                            <% if @user.avatar.attached? %>
+                                <%= image_tag @user.avatar, class: "img-center"%>
                                 <% else %>
                                     <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
@@ -19,16 +19,18 @@
 					        <!-- Profile details -->
 					        <div class="profile-details">
 					            <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+					            
 					            <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
 					        </div>
-					        <!-- Profile follow form and message -->
+
+					        <!-- Profile connect -->
 					        <div class="profile-connect mt-4">	
 					            <p><%= render 'follow_form' %></p>
 					            <p><%= render 'send_message' %></p>
-                            </div>  
+                  </div>  
    						</div>
-                    </div>
-                </div>
+             </div>
+            </div>
                 <div class="col-lg-8">
                     <div class="main-content">
                     <!-- Page title -->
@@ -142,3 +144,4 @@
         </div>
     </div>
 </section>
+

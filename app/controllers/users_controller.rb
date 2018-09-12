@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   def list_match
     list = []
     User.all.each do |user|    
-      if User.match?(current_user, user) && user != current_user
+      if User.match?(current_user, user)
       list << user 
       end
      end 
