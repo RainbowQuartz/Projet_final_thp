@@ -57,20 +57,23 @@
                         <div class="profile-picture profile-picture--style-2">
                           <img src="../../assets/images/prv/people/person-1.jpg" >
                         </div>
-        
+
                       <div class="block-body text-center">
                         <h3 class="heading heading-6 strong-600 mb-0 mb-0"><%= user.first_name %></h3>
                         <h3 class="heading heading-light heading-sm strong-300"><%= user.city %>, <%= user.country %></h3>
                         <div class="aux-info-wrapper border-top">
                           <ul class="aux-info">
                             <li class="heading strong-400 text-center">
-                              <span class="d-block strong-600">Parle : Anglais</span>  
+                              <span class="d-block strong-600">Parle : Anglais</span>
                               <span class="d-block strong-600">Apprends à parler : Français</span>
                             </li>
                           </ul>
                         </div>
                         <div>
-                        <%= link_to 'Voir le profil', user %>
+                        <%= link_to 'Voir le profil', user %><br>
+                        <% if @other_user != current_user %>
+                            <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
+                        <% end %>
                         </div>
                           </div>
                         </div>

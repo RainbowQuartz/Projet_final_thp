@@ -1,5 +1,6 @@
 # Secure random number generator interface ruby library
 require 'securerandom'
+include ::ApplicationHelper
 
 class ChatsController < ApplicationController
   before_action :authenticate_user!
@@ -28,15 +29,6 @@ class ChatsController < ApplicationController
     @message = Message.new
   end
 
-  def list_match
-    list = []
-    User.all.each do |user|
-      if User.match?(current_user, user) && user != current_user
-      list << user
-      end
-     end
-    return list
-  end
 
 
 private

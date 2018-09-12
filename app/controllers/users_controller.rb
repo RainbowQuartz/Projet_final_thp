@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ::ApplicationHelper
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
 	def show
@@ -56,16 +57,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
- # private
 
-  def list_match
-    list = []
-    User.all.each do |user|
-      if User.match?(current_user, user) && user != current_user
-      list << user
-      end
-     end
-    return list
-  end
+ private
+
+
 
 end
