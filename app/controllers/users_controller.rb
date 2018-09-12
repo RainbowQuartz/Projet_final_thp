@@ -7,13 +7,20 @@ class UsersController < ApplicationController
 
 
   def update
-    puts params
 		@user = current_user
 		if @user.avatar.attached?
-		    @user.avatar.purge
+		  @user.avatar.purge
 		end
-		@user.avatar.attach(params.require(:user)[:avatar])
-    redirect_to root_path
+		@user.avatar.attach(params.require(:user).permit![:avatar])
+    redirect_to edit_user_registration_path
+  end
+
+  def delete
+    @user = current_user
+    if @user.avatar.attached?
+      @user.avatar.purge
+      redirect_to edit_user_registration_path
+    end
   end
 
   def following
@@ -51,10 +58,10 @@ class UsersController < ApplicationController
     list = []
     User.all.each do |user|
       if User.match?(current_user, user) && user != current_user
-      list << user 
+        list << user 
       end
-     end
-    return list
+    end 
+    return list 
   end
 
 end

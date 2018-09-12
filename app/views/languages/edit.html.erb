@@ -15,9 +15,7 @@
                                 <% else %>
                                     <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
-                                <a href="#" class="btn-aux">
-                                    <i class="ion ion-edit"></i>
-                                </a>
+                                <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                             </div>
                   <!-- Profile details -->
                   <div class="profile-details">

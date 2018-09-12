@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'languages/edit'
   post 'languages/edit', to: 'languages#create'
   get 'interests/edit'
@@ -14,13 +13,15 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact', as: 'contact'
   get 'about', to: 'static_pages#about', as: 'about'
 
+  post 'users/edit', to: 'users#delete'
+
   resources :users do
     resources :chats, only: [:index, :show, :create]
     member do
       get :following, :followers, :match
     end
-    
   end
+
   resources :messages, only:[:create]
   resources :relationships, only: [:create, :destroy]
 
