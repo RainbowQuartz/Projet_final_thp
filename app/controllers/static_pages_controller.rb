@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   attr_accessor :comparisons_hash
 
   def home
+    @user = current_user
   end
 
   def contact
