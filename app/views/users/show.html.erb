@@ -1,3 +1,6 @@
+<% content_for(:title) do %>
+<%= "Speak&Up | " + @user.first_name + " " + @user.last_name %>
+<% end %>
 <section class="slice-sm sct-color-1">
     <div class="profile">
         <div class="container">
@@ -22,10 +25,10 @@
 					            <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
 					        </div>
 					        <!-- Profile follow form and message -->
-					        <div class="profile-connect mt-4">	
+					        <div class="profile-connect mt-4">
 					            <p><%= render 'follow_form' %></p>
 					            <p><%= render 'send_message' %></p>
-                            </div>  
+                            </div>
    						</div>
                     </div>
                 </div>
@@ -37,7 +40,7 @@
                                 <div class="col-lg-6 col-12">
                                     <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
                                         <a href="#" class="link text-underline--none">
-                                            <i class="ion-ios-arrow-back"></i>Profile 
+                                            <i class="ion-ios-arrow-back"></i>Profile
                                         </a>
                                     </h2>
                                 </div>
@@ -93,7 +96,7 @@
                                                             <li><%= language.name %></li>
                                                         <% end %>
                                                     </ul>
-                                                </div>           
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,22 +104,22 @@
                                         <div class="card no-border bg-transparent">
                                             <div class="card-title px-0">
                                                 <h3 class="heading heading-6 strong-600">
-                                                Langues en cours d'apprentissage : 
+                                                Langues en cours d'apprentissage :
                                                 </h3>
                                             </div>
-                                            <div class="card-body px-0">  
+                                            <div class="card-body px-0">
                                                 <div>
                                                     <ul class="checkbox">
                                                         <% Language.find(@user.wanted_languages.ids).each do |language| %>
                                                             <li><%= language.name %></li>
-                                                        <% end %> 
+                                                        <% end %>
                                                     </ul>
-                                                </div>  
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>                                                  
+                            </div>
                         <!-- Interests section  -->
                             <div class="card no-border bg-transparent">
                                 <div class="card-title px-0 pb-0 no-border">
@@ -126,8 +129,8 @@
                                 </div>
                                 <div class="card-body px-0">
                                     <div class="row">
-                                        <div class="col-md-6 col-lg-4"> 
-                                            <% @user.interests.each do |interest| %>           
+                                        <div class="col-md-6 col-lg-4">
+                                            <% @user.interests.each do |interest| %>
                                                 <span class="badge badge-lg badge-primary"><%= interest.name %></span>
                                             <% end %>
                                         </div>
