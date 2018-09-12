@@ -15,6 +15,7 @@
                     <% else %>
                       <%= image_tag "profil.jpg", :class=> "img-center"%>
                     <% end %>
+                    <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
               </div>
 
         <!-- Profile details -->
@@ -45,7 +46,7 @@
 
           <div class="link-menu link-menu--style-3 py-4 border-bottom">
             <%= link_to 'Mon profil', current_user %>
-            <%= link_to 'Modifier mon profil', current_user %>
+            <%= link_to 'Modifier mon profil', edit_user_registration_path %>
             <%= link_to 'Mes Matchs', match_user_path(current_user), class: 'active' %>
             <%= link_to 'Following', following_user_path(current_user) %>
           </div>

@@ -15,9 +15,7 @@
                                 <% else %>
                                     <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
-                                <a href="#" class="btn-aux">
-                                    <i class="ion ion-edit"></i>
-                                </a>
+                                <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                             </div>
                   <!-- Profile details -->
                   <div class="profile-details">
@@ -60,7 +58,6 @@
 			<!-- Account settings -->
 			<div class="row">
 				<div class="col-lg-12">
-					<form class="form-default" data-toggle="validator" role="form">
 						<!-- Interests info-->
 						<div class="card no-border bg-transparent">
 							<div class="card-title px-0 pb-0 no-border">
@@ -68,7 +65,7 @@
 								</h3>
 							</div>
 							<div class="card-body px-0">
-								<%= form_for(current_user, url: languages_edit_path, method: :create) do |f| %>
+								<%= form_for(current_user, url: languages_edit_path, method: :post) do |f| %>
 								<div class="field">
 									<p class="mt-1 mb-0">
 								Langues en apprentissage

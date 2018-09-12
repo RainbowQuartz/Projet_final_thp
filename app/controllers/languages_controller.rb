@@ -1,5 +1,6 @@
 class LanguagesController < ApplicationController
   def edit
+    puts "======je rentre dans edit de language======"
     @language = Language
     @wanted_languages = WantedLanguage.new
     @spoken_languages = SpokenLanguage.new
@@ -7,6 +8,7 @@ class LanguagesController < ApplicationController
   end
 
   def create
+    puts "======je rentre dans create de language======"
     p params
 
     params[:wanted_languages][:id].each do |wanted_language|
@@ -23,6 +25,6 @@ class LanguagesController < ApplicationController
       end
     end
 
-    redirect_to root_path
+    redirect_to current_user
   end
 end
