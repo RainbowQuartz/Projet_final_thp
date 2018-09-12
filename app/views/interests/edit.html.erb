@@ -63,7 +63,7 @@
           <!-- Account settings -->
           <div class="row">
             <div class="col-lg-12">
-              <form class="form-default" data-toggle="validator" role="form">
+              <!-- <form class="form-default" data-toggle="validator" role="form"> -->
 
                 <!-- Interests info-->
                 <div class="card no-border bg-transparent">
@@ -80,7 +80,7 @@
                     <div class="row">
                       <div class="col-md-6 col-lg-4">
                         <div class="form-group">
-                          <%= form_for(current_user.interests.build, url: interests_edit_path) do |f| %>
+                          <%= form_for(current_user.interests.build, url: interests_edit_path, method: :post) do |f| %>
                            <div class="field ">
                               <%= collection_select(:interests, :id, Interest.all, :id, :name, {}, { :multiple => true})%>
                            </div><br>
