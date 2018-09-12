@@ -2,9 +2,9 @@ class InterestsController < ApplicationController
   ## GET interest/edit
   def edit
     @interest = Interest.first
-    @user = User.find(current_user.id)
+    @user = current_user 
     @all_interests = Interest.all
-    @interest_user = @user.interests.build   
+    @interest_user = @user.interests.build    
   end
 
   def update
