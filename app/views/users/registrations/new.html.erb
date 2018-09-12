@@ -1,3 +1,6 @@
+<% content_for(:title) do %>
+<%= "Speak&Up | Inscriptions" %>
+<% end %>
 <section class="slice-lg has-bg-cover bg-size-cover"  bottom center>
   <div class="container">
     <div class="row justify-content-center cols-xs-space">
@@ -48,7 +51,7 @@
                       <%= f.text_field :city, autofocus: true, autocomplete: "Rennes", :class =>"form-control form-control-lg" %>
                     </div>
                   </div>
-                
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label">Code Postal</label><br>

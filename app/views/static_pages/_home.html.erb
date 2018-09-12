@@ -1,4 +1,7 @@
- <!--    BANNER        -->
+<% content_for(:title) do %>
+<%= "Speak&Up | Accueil" %>
+<% end %>
+<!--    BANNER        -->
 <div class="image">
     <%= image_tag 'background-2.jpg', :class => 'banner-img2'%>
     
@@ -17,136 +20,56 @@
 
 
 <section class="slice sct-color-1">
-    <div class="container">
-        <h3 class="c-orange">Quelques profils succeptibles de vous interesser :</h3>
-
+  <div class="container">
+    <h3>Quelques profils succeptibles de vous interesser :</h3>
         <div class="widget mt-4">
-            <div class="row-wrapper">
-                <div class="row cols-md-space cols-sm-space cols-xs-space">
-                    <div class="col-lg-4">
-                        <div class="block block--style-3 block-shadow">
-                            <div class="profile-picture profile-picture--style-2">
-                                <img src="../../assets/images/prv/people/person-1.jpg" >
-                            </div>
+          <div class="row-wrapper">
+            <div class="row cols-md-space cols-sm-space cols-xs-space">
+              <% @comparisons_hash.each do |key, value| %>
+                <% if key == current_user.id %>
+                <% else %>
+                  <div class="col-lg-4">
+                    <div class="block block--style-3">
+                      <div class="profile-picture profile-picture--style-2">
+                        <img src="../../assets/images/prv/people/person-1.jpg" >
+                      </div>
+                      <div class="block-body text-center">
+                        <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
+                          <%= User.find(key).first_name + User.find(key).last_name %>
+                        </h3>
+                        <h3 class="heading heading-light heading-sm strong-300 c-black">
+                          <%= User.find(key).city %>
+                        </h3>
+                        <div class="aux-info-wrapper border-top">
+                          <ul class="aux-info">
+                            <li class="heading strong-400 text-center">
+                              <span class="d-block strong-600">
+                                Parle :
+                                <% User.find(key).spoken_languages.each do |language| %>
+                                  <%= "#{Language.find(language.language_id).name}, " %>
+                                <% end %>
+                              </span>
+                              <span class="d-block strong-600">
+                                Apprends à parler :
+                                <% User.find(key).wanted_languages.each do |language| %>
+                                  <%= "#{Language.find(language.language_id).name}, "%>
+                                <% end %>
+                              </span>
+                            </li>
+                          </ul>
 
-                            <div class="block-body text-center">
-                                <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">Jack Fitcher</h3>
-                                <h3 class="heading heading-light heading-sm strong-300 c-black">Rennes</h3>
-                                                            <div class="aux-info-wrapper border-top">
-                                <ul class="aux-info">
-                                    <li class="heading strong-400 text-center">
-                                        <span class="d-block strong-600">Parle : Anglais</span>
-                                    
-                                        <span class="d-block strong-600">Apprends à parler : Français</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                                <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Ajouter</a>
-                            </div>
                         </div>
+                        <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Ajouter</a>
+                      </div>
                     </div>
 
-                        <div class="col-lg-4">
-                        <div class="block block--style-3 block-shadow">
-                            <div class="profile-picture profile-picture--style-2">
-                                <img src="../../assets/images/prv/people/person-1.jpg" >
-                            </div>
+                  </div>
+                <% end %>
+              <% end %>
 
-                            <div class="block-body text-center">
-                                <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">Jack Fitcher</h3>
-                                <h3 class="heading heading-light heading-sm strong-300 c-black">Rennes</h3>
-                                                            <div class="aux-info-wrapper border-top">
-                                <ul class="aux-info">
-                                    <li class="heading strong-400 text-center">
-                                        <span class="d-block strong-600">Parle : Anglais</span>
-                                    
-                                        <span class="d-block strong-600">Apprends à parler : Français</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                                <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Ajouter</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="block block--style-3 block-shadow">
-                            <div class="profile-picture profile-picture--style-2">
-                                <img src="../../assets/images/prv/people/person-1.jpg" >
-                            </div>
-
-                            <div class="block-body text-center">
-                                <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">Jack Fitcher</h3>
-                                <h3 class="heading heading-light heading-sm strong-300 c-black">Rennes</h3>
-                                                            <div class="aux-info-wrapper border-top">
-                                <ul class="aux-info">
-                                    <li class="heading strong-400 text-center">
-                                        <span class="d-block strong-600">Parle : Anglais</span>
-                                    
-                                        <span class="d-block strong-600">Apprends à parler : Français</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                                <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Ajouter</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                        <div class="col-lg-4">
-                        <div class="block block--style-3 block-shadow">
-                            <div class="profile-picture profile-picture--style-2">
-                                <img src="../../assets/images/prv/people/person-1.jpg" >
-                            </div>
-
-                            <div class="block-body text-center">
-                                <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">Jack Fitcher</h3>
-                                <h3 class="heading heading-light heading-sm strong-300 c-black">Rennes</h3>
-                                                            <div class="aux-info-wrapper border-top">
-                                <ul class="aux-info">
-                                    <li class="heading strong-400 text-center">
-                                        <span class="d-block strong-600">Parle : Anglais</span>
-                                    
-                                        <span class="d-block strong-600">Apprends à parler : Français</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                                <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Ajouter</a>
-                            </div>
-                        </div>
-                    </div>
-
-                        <div class="col-lg-4">
-                        <div class="block block--style-3 block-shadow">
-                            <div class="profile-picture profile-picture--style-2">
-                                <img src="../../assets/images/prv/people/person-1.jpg" >
-                            </div>
-
-                            <div class="block-body text-center">
-                                <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">Jack Fitcher</h3>
-                                <h3 class="heading heading-light heading-sm strong-300 c-black">Rennes</h3>
-                                                            <div class="aux-info-wrapper border-top">
-                                <ul class="aux-info">
-                                    <li class="heading strong-400 text-center">
-                                        <span class="d-block strong-600">Parle : Anglais</span>
-                                    
-                                        <span class="d-block strong-600">Apprends à parler : Français</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                                <a href="#" class="btn btn-base-1 btn-shadow btn-circle px-4 mt-2">Ajouter</a>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 </section>

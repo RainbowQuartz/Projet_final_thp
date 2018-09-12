@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjetFinalThp</title>
+    <title>
+          <%= content_for?(:title)? yield(:title) : "Speak&Up" %>
+    </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet"> 
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
   </head>
 
   <body>
     <% if user_signed_in? %>
     <%= render 'layouts/header'%>
     <% end -%>
-    <%= yield %>    
+    <%= yield %>
     <%= render 'layouts/footer'%>
-   
+
   </body>
 </html>

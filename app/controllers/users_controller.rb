@@ -7,20 +7,20 @@ class UsersController < ApplicationController
 
 
   def update
-    puts params
 		@user = current_user
 		if @user.avatar.attached?
-		    @user.avatar.purge
+		  @user.avatar.purge
 		end
-		@user.avatar.attach(params.require(:user)[:avatar])
+		@user.avatar.attach(params.require(:user).permit![:avatar])
+    redirect_to edit_user_registration_path
+  end
 
-    params[:interests][:id].each do |interest|
-      if !interest.empty?
-        @user.interests << Interest.find(interest)
-      end
+  def delete
+    @user = current_user
+    if @user.avatar.attached?
+      @user.avatar.purge
+      redirect_to edit_user_registration_path
     end
-
-    redirect_to root_path
   end
 
   def following
@@ -42,10 +42,6 @@ class UsersController < ApplicationController
     @title = "Mes matchs"
     @user = User.find(params[:id])
     @users = list_match
-    puts "======================"
-    puts @users
-    puts @users.inspect
-    puts "======================"
   end
 
   def preferences
@@ -56,17 +52,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
- # private 
+ # private
 
   def list_match
     list = []
-    User.all.each do |user|    
-      if User.match?(current_user, user)
-      list << user 
+    User.all.each do |user|
+      if User.match?(current_user, user) && user != current_user
+        list << user 
       end
-     end 
+    end 
     return list 
   end
 
 end
-
