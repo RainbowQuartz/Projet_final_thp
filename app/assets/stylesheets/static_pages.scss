@@ -33,8 +33,9 @@
     height: 50%;
 
 }
+
 .image{
-        background-color: #3452ff;
+     background-color: #3452ff;
 }
 
 .centered {
@@ -61,10 +62,18 @@
     opacity: 0.95;
     filter: alpha(opacity=85);
 }
+
 .boutons {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 
+}
+
+#footer{
+    position: static !important;
+    width: 100% !important;
+    margin-top: 10%;
+    bottom: 0 !important;
 }

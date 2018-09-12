@@ -12,9 +12,7 @@
                                 <% else %>
                                     <%= image_tag "profil.jpg", class: "img-center"%>
                                 <% end %>
-                                <a href="#" class="btn-aux">
-                                    <i class="ion ion-edit"></i>
-                                </a>
+                                <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                             </div>
 					        <!-- Profile details -->
 					        <div class="profile-details">
@@ -26,7 +24,7 @@
 					        <!-- Profile connect -->
 					        <div class="profile-connect mt-4">	
 					            <p><%= render 'follow_form' %></p>
-					            <a href="#" class="btn btn-styled btn-base-2 btn-circle">Send message</a>
+					            <p><%= render 'send_message' %></p>
                             </div>  
    						</div>
                     </div>
@@ -49,12 +47,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-           <div class="link-menu link-menu--style-3 py-4 border-bottom">
-            <%= link_to 'Mon profil', current_user, :class =>"active" %>
-            <%= link_to 'Modifier mon profil', current_user %>
-            <%= link_to 'Following', following_user_path(current_user) %>
-            <%= link_to 'Followers', followers_user_path(current_user) %>
-          </div>
+                                      <div class="link-menu link-menu--style-3 py-4 border-bottom">
+                                        <%= link_to 'Mon profil',  current_user, :class =>"active" %>
+                                        <%= link_to 'Modifier mon profil', edit_user_registration_path  %>
+                                        <%= link_to 'Following', following_user_path(current_user) %>
+                                        <%= link_to 'Followers', followers_user_path(current_user) %>
+                                      </div>
+
+
 
                                             <!-- Account settings -->
                                             <div class="row">

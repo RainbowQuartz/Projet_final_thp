@@ -69,4 +69,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.default :charset => "utf-8"
+
+  # config action_cable for Live chat
+  config.action_cable.url = "ws://localhost:3000/cable"
 end

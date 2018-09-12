@@ -29,6 +29,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
          :confirmable
+         
+# live chat association
+  has_many :messages
+  has_many :subscriptions
+  has_many :chats, through: :subscriptions
+  def existing_chats_users
+    existing_chat_users = []
+    self.chats.each do |chat|
+    existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map {|subscription| subscription.user})
+    end
+    existing_chat_users.uniq
+  end
 
  # Follows a user.
   def follow(other_user)
@@ -44,4 +56,17 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end        
+
+  # Returns true if the current user is followed by  the other user.
+  def followers?(other_user)
+    followers.include?(other_user)
+  end
+
+  # Returns true if user1 and user are matching, user1 and user2 follow each other
+  def self.match?(user1, user2)
+    if user1.following.include?(user2) && user2.followers.include?(user1)
+      return true
+    end
+  end
+
 end
