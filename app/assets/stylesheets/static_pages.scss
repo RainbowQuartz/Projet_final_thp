@@ -22,7 +22,6 @@
     opacity: 0.75;
     filter: alpha(opacity=75);
     width: 100%;
-    height: 30%;
 
 }
 
@@ -30,7 +29,6 @@
     opacity: 0.85;
     filter: alpha(opacity=85);
     width: 100%;
-    height: 50%;
 
 }
 
@@ -48,6 +46,18 @@
     top: 50%;
     left: 50%;
 
+}
+
+
+.centered-2{
+    position: relative;
+    transform: translate(-50%, -70%);
+    top: 70%;
+    left: 43%;
+}
+
+.c-orange{
+    color: #FF5A26 !important;
 }
 
 
@@ -95,7 +105,9 @@
     background-color: #292f36 !important;
 }
 
-.form-header{
+.bande{
     background-color: #FF5A26 !important;
     color: #ffff;
+    position: relative;
+    padding: 2rem 0;
 }
