@@ -2,16 +2,13 @@ class InterestsController < ApplicationController
   ## GET interest/edit
   def edit
     @interest = Interest.first
-    @user = User.find(current_user.id)
+    @user = current_user 
     @all_interests = Interest.all
-    @interest_user = @user.interests.build
-    @user = current_user
-
+    @interest_user = @user.interests.build    
   end
 
   def update
     p params
-
     @user = current_user
     params[:interests][:id].each do |interest|
       if !interest.empty?

@@ -44,16 +44,16 @@
 				</div>
 			</div>
 			<div class="link-menu link-menu--style-3 py-4 border-bottom">
-				<%= link_to 'Mon profil', current_user %>
-				<%= link_to 'Modifier mon profil', edit_user_registration_path, :class =>"active" %>
-				<%= link_to 'Following', following_user_path(current_user) %>
-				<%= link_to 'Followers', followers_user_path(current_user) %>
+        <%= link_to 'Mon profil', current_user%>
+        <%= link_to 'Modifier mon profil', edit_user_registration_path, class: 'active' %>
+        <%= link_to 'Mes Matchs', match_user_path(current_user) %>
+        <%= link_to 'Following', following_user_path(current_user) %>
 					
 			</div>
 			<div class="link-menu link-menu--style-3 py-4 ">
                 <%= link_to 'Paramètres général', edit_user_registration_path%>
-                <%= link_to 'Préférences', interests_edit_path(current_user[:id])%>
-                <%= link_to 'Langues', languages_edit_path(current_user[:id]), :class =>"active" %>
+                <%= link_to 'Préférences', interests_edit_path%>
+                <%= link_to 'Langues', languages_edit_path, :class =>"active" %>
             </div>
 			<!-- Account settings -->
 			<div class="row">
@@ -83,12 +83,11 @@
 								<% end %>
 							</div>
 						</div>
-                      </div>
-                    </div>
-                  </div>
-                  <hr class="mt-0 mb-0">
-                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
