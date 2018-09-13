@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :spoken_languages
+  has_many :spoken_languages, dependent:   :destroy
   has_many :languages, through: :spoken_languages
-  has_many :wanted_languages
+  has_many :wanted_languages, dependent:   :destroy
   has_many :languages, through: :wanted_languages
-  has_and_belongs_to_many :interests
+  has_and_belongs_to_many :interests, dependent:   :destroy
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :postal_code, presence: true
+  validates :postal_code, length: { is: 5 }, presence: true
   validates :city, presence: true
   validates :country, presence: true
   validates :birthdate, presence: true
