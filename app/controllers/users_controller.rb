@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   def update
 		@user = current_user
 		if @user.avatar.attached?
@@ -25,14 +24,12 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
     @user  = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
@@ -40,7 +37,6 @@ class UsersController < ApplicationController
 
 
   def match
-    @title = "Mes matchs"
     @user = User.find(params[:id])
     @users = list_match
   end
@@ -52,10 +48,6 @@ class UsersController < ApplicationController
   def langues
     @user = User.find(params[:id])
   end
-
-
- private
-
 
 
 end
