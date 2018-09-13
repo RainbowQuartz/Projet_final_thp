@@ -39,7 +39,7 @@ class User < ApplicationRecord
   def existing_chats_users
     existing_chat_users = []
     self.chats.each do |chat|
-    existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map {|subscription| subscription.user})
+      existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map {|subscription| subscription.user})
     end
     existing_chat_users.uniq
   end
@@ -66,9 +66,7 @@ class User < ApplicationRecord
 
   # Returns true if user1 and user are matching, user1 and user2 follow each other
   def self.match?(user1, user2)
-    if user1.following.include?(user2) && user2.following.include?(user1)
-      return true
-    end
+    user1.following.include?(user2) && user2.following.include?(user1)
   end
 
 end
