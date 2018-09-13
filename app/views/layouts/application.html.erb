@@ -16,6 +16,7 @@
     <% if user_signed_in? %>
     <%= render 'layouts/header'%>
     <% end -%>
+    <%= render 'layouts/alerts' %>
     <%= yield %>
     <%= render 'layouts/footer'%>
 
