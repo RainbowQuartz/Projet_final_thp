@@ -1,10 +1,9 @@
 <% content_for(:title) do %>
   <%= "Speak&Up | Accueil" %>
 <% end %>
-<div class="image">
-  <%= image_tag 'background-2.jpg', :class => 'banner-img2'%>  
-  <div class=" container centered-2">
-    <div class= "row">
+<div class="image-2">  
+  <div class=" container">
+    <div class= "row col-md-8">
       <h1 class="heading display-4 strong-400 c-white">Rencontrer, échanger, s'améliorer.</h1>
         <div class="lead mt-3 mb-3 c-white">Speak&UP est la première plateforme de rencontre uniquement basée sur l'apprentissage des langues.
         </div>
@@ -13,7 +12,7 @@
   </div>
   <section class="slice sct-color-1">
     <div class="container">
-      <h3>Quelques profils succeptibles de vous interesser :</h3>
+      <h3 class="c-orange">Quelques profils succeptibles de vous interesser :</h3>
       <div class="widget mt-4">
         <div class="row-wrapper">
           <div class="row cols-md-space cols-sm-space cols-xs-space">
@@ -24,9 +23,9 @@
                   <div class="block block--style-3">
                     <div class="profile-picture profile-picture--style-2">
                       <% if User.find(key).avatar.attached? %>
-                        <%= image_tag User.find(key).avatar, class: "img-center"%>
+                        <%= link_to (image_tag User.find(key).avatar, class: "img-center"), User.find(key) %>
                       <% else %>
-                        <%= image_tag "profil.jpg", class: "img-center"%>
+                        <%= link_to (image_tag "profil.jpg", class: "img-center"), User.find(key) %>
                       <% end %>
                     </div>
                     <div class="block-body text-center">
@@ -54,7 +53,10 @@
                           </li>
                         </ul>
                       </div>
-                      <p><%= link_to 'Voir profil', User.find(key) %>
+                      <%= link_to 'Voir profil', User.find(key), class: 'btn btn-styled btn-base-1 btn-circle' %>
+                    </div>
+                    <div class="profile-connect mt-4">
+                      <p></p>
                     </div>
                   </div>
                 </div>
