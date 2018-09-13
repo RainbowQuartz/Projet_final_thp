@@ -37,7 +37,7 @@
                                 <div class="col-lg-6 col-12">
                                     <h2 class="heading heading-5 text-capitalize strong-500 mb-0">
                                         <a href="#" class="link text-underline--none">
-                                            <i class="ion-ios-arrow-back"></i>Profile
+                                            <i class="ion-ios-arrow-back"></i>
                                         </a>
                                     </h2>
                                 </div>
@@ -46,11 +46,11 @@
                             </div>
                         </div>
                     <div class="link-menu link-menu--style-3 py-4 border-bottom">
-                    <%= link_to 'Mon profil', current_user%>
-                    <%= link_to 'Modifier mon profil', current_user %>
-                    <%= link_to 'Mes Matchs', match_user_path(current_user) %>
-                    <%= link_to 'Following', following_user_path(current_user) %>
-                    <%= link_to 'Messagerie', user_chats_path(current_user) %>
+                      <%= link_to 'Mon profil', current_user %>
+                      <%= link_to 'Modifier mon profil', edit_user_registration_path %>
+                      <%= link_to 'Mes contacts', match_user_path(current_user) %>
+                      <%= link_to 'Mes demandes', following_user_path(current_user) %>
+                      <%= link_to 'Messagerie', user_chats_path(current_user), class: 'active' %>
                   </div>
 
 <h3>Vos conversations :</h3>
