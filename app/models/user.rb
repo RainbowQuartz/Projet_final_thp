@@ -65,7 +65,7 @@ class User < ApplicationRecord
 
   # Returns true if user1 and user are matching, user1 and user2 follow each other
   def self.match?(user1, user2)
-    if user1.following.include?(user2) && user2.followers.include?(user1)
+    if user1.following.include?(user2) && user2.following.include?(user1)
       return true
     end
   end
