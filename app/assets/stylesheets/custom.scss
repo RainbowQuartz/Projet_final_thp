@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 /*flash*/
-.alert{
+.alert {
   position: absolute;
   display: inline-block;
   width: 30%;
@@ -10,7 +10,7 @@
   height: 50px;
 }
 
-.alert ul li{
+.alert ul li {
   list-style-type: none;
 }
 
@@ -55,20 +55,20 @@
 
 /* chat */
 
-.chat-name{
+.chat-name {
   padding-left: 0px;
 }
 
-.chat-name li{
+.chat-name li {
   list-style:  none;
   border-bottom: 0.3px solid rgba(172,172,172,1);
 }
 
-.chat-name li a{
+.chat-name li a {
   padding-left: 5px;
 }
 
-.message{
+.message {
   border: 2px solid #dedede;
   background-color: #ECECEC;
   color: #03050f !important;
