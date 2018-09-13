@@ -11,12 +11,11 @@ class InterestsController < ApplicationController
   def update
     puts "===========je rentre dans create d'interests============"
     p params
-    @user = current_user
     params[:interests][:id].each do |interest|
       if !interest.empty?
-        if @user.interests.ids.include?(interest)
+        if current_user.interests.ids.include?(interest)
         else
-          @user.interests << Interest.find(interest)
+          current_user.interests << Interest.find(interest)
         end
       end
     end

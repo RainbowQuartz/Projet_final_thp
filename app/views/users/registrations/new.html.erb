@@ -70,7 +70,7 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label>Présentation</label><br>
+                      <label>Présente-toi en quelques mots</label><br>
                       <%= f.text_field :bio, autofocus: true, autocomplete: "Présentez vous", :class =>"form-control form-control-lg" %>
                     </div>
                   </div>
@@ -99,7 +99,7 @@
 
                 <%= f.submit "S'enregistrer", :class =>"btn btn-styled btn-lg btn-block btn-base-1 mt-4" %>
               <% end %>
-            <%= render "devise/shared/links" %>
+            <%= render "users/links" %>
           </div>
         </div>
       </div>

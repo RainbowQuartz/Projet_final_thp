@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :spoken_languages
+  has_many :spoken_languages, dependent:   :destroy
   has_many :languages, through: :spoken_languages
-  has_many :wanted_languages
+  has_many :wanted_languages, dependent:   :destroy
   has_many :languages, through: :wanted_languages
-  has_and_belongs_to_many :interests
+  has_and_belongs_to_many :interests, dependent:   :destroy
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :postal_code, presence: true
+  validates :postal_code, length: { is: 5 }, presence: true
   validates :city, presence: true
   validates :country, presence: true
   validates :birthdate, presence: true
@@ -35,10 +35,11 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :chats, through: :subscriptions
   has_many :notifications
+
   def existing_chats_users
     existing_chat_users = []
     self.chats.each do |chat|
-    existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map {|subscription| subscription.user})
+      existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map {|subscription| subscription.user})
     end
     existing_chat_users.uniq
   end
@@ -65,9 +66,7 @@ class User < ApplicationRecord
 
   # Returns true if user1 and user are matching, user1 and user2 follow each other
   def self.match?(user1, user2)
-    if user1.following.include?(user2) && user2.followers.include?(user1)
-      return true
-    end
+    user1.following.include?(user2) && user2.following.include?(user1)
   end
 
 end

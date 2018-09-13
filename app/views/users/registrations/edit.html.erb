@@ -29,7 +29,7 @@
             <div class="page-title">
               <div class="row align-items-center">
                 <div class="col-lg-6 col-12">
-                  <h2 class="heading heading-5 text-capitalize strong-500 mb-0">Profil</h2>
+                  <h2 class="heading heading-5 text-capitalize strong-500 mb-0">Modification profile</h2>
                 </div>
                 <div class="col-lg-6 col-12">
               	</div>
@@ -38,8 +38,9 @@
             <div class="link-menu link-menu--style-3 py-4 border-bottom">
               <%= link_to 'Mon profil', current_user %>
               <%= link_to 'Modifier mon profil', edit_user_registration_path, class: 'active' %>
-              <%= link_to 'Mes Matchs', match_user_path(current_user) %>
-              <%= link_to 'Following', following_user_path(current_user) %>
+              <%= link_to 'Mes contacts', match_user_path(current_user) %>
+              <%= link_to 'Mes demandes', following_user_path(current_user) %>
+              <%= link_to 'Messagerie', user_chats_path(current_user) %>
             </div>
             <div class="link-menu link-menu--style-3 py-4 ">
               <%= link_to 'Paramètres général', edit_user_registration_path, class: 'active' %>
