@@ -56,6 +56,9 @@
                       </div>
                       <%= link_to 'Voir profil', User.find(key) %>
                     </div>
+                    <div class="profile-connect mt-4">
+                      <p><%= render 'users/follow_form' %></p>
+                    </div>
                   </div>
                 </div>
               <% end %>
