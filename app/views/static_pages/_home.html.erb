@@ -24,9 +24,9 @@
                   <div class="block block--style-3">
                     <div class="profile-picture profile-picture--style-2">
                       <% if User.find(key).avatar.attached? %>
-                        <%= image_tag User.find(key).avatar, class: "img-center"%>
+                        <%= link_to (image_tag User.find(key).avatar, class: "img-center"), User.find(key) %>
                       <% else %>
-                        <%= image_tag "profil.jpg", class: "img-center"%>
+                        <%= link_to (image_tag "profil.jpg", class: "img-center"), User.find(key) %>
                       <% end %>
                     </div>
                     <div class="block-body text-center">
@@ -54,7 +54,7 @@
                           </li>
                         </ul>
                       </div>
-                      <p><%= link_to 'Voir profil', User.find(key) %>
+                      <%= link_to 'Voir profil', User.find(key) %>
                     </div>
                   </div>
                 </div>
