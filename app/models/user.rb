@@ -27,13 +27,14 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, 
+         :recoverable, :rememberable, :validatable,
          :confirmable
-         
+
 # live chat association
   has_many :messages
   has_many :subscriptions
   has_many :chats, through: :subscriptions
+  has_many :notifications
   def existing_chats_users
     existing_chat_users = []
     self.chats.each do |chat|
@@ -55,7 +56,7 @@ class User < ApplicationRecord
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
-  end        
+  end
 
   # Returns true if the current user is followed by  the other user.
   def followers?(other_user)
@@ -64,7 +65,7 @@ class User < ApplicationRecord
 
   # Returns true if user1 and user are matching, user1 and user2 follow each other
   def self.match?(user1, user2)
-    if user1.following.include?(user2) && user2.followers.include?(user1)
+    if user1.following.include?(user2) && user2.following.include?(user1)
       return true
     end
   end
