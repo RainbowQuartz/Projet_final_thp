@@ -53,37 +53,57 @@
           </div>
 
           <!-- User follower and following -->
-                <div class="row cols-md-space cols-sm-space cols-xs-space">
-                  <% if @users.any? %>
-                    <% @users.each do |user| %>
-                    <div class="col-lg-4">
-                      <div class="block block--style-3">
-                        <div class="profile-picture profile-picture--style-2">
-                          <img src="../../assets/images/prv/people/person-1.jpg" >
-                        </div>
 
-                      <div class="block-body text-center">
-                        <h3 class="heading heading-6 strong-600 mb-0 mb-0"><%= user.first_name %></h3>
-                        <h3 class="heading heading-light heading-sm strong-300"><%= user.city %>, <%= user.country %></h3>
-                        <div class="aux-info-wrapper border-top">
-                          <ul class="aux-info">
-                            <li class="heading strong-400 text-center">
-                              <span class="d-block strong-600">Parle : Anglais</span>
-                              <span class="d-block strong-600">Apprends à parler : Français</span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div>
+          <div class="row cols-md-space cols-sm-space cols-xs-space">
+            <% if @users.any? %>
+              <% @users.each do |user| %>
+                <div class="col-lg-4">
+                  <div class="block block--style-3">
+                    <div class="profile-picture profile-picture--style-2">
+                      <% if user.avatar.attached? %>
+                        <%= image_tag user.avatar, class: "img-center"%>
+                      <% else %>
+                        <%= image_tag "profil.jpg", class: "img-center"%>
+                      <% end %>
+                    </div>
+                    <div class="block-body text-center">
+                      <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
+                        <%= "#{user.first_name} #{user.last_name}" %>
+                      </h3>
+                      <h3 class="heading heading-light heading-sm strong-300 c-black">
+                        <%= user.city %>
+                      </h3>
+                      <div class="aux-info-wrapper border-top">
+                        <ul class="aux-info">
+                          <li class="heading strong-400 text-center">
+                            <span class="d-block strong-600">
+                              Parle :
+                              <% user.spoken_languages.each do |language| %>
+                                <%= "#{Language.find(language.language_id).name}, " %>
+                              <% end %>
+                            </span>
+                            <span class="d-block strong-600">
+                              Apprends à parler :
+                              <% user.wanted_languages.each do |language| %>
+                                <%= "#{Language.find(language.language_id).name}, "%>
+                              <% end %>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
                         <%= link_to 'Voir le profil', user %><br>
                         <% if @other_user != current_user %>
                             <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
                         <% end %>
-                        </div>
-                          </div>
-                        </div>
                       </div>
-                    <% end %>
                     </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
                   </div>
                 </div>
               </div>
@@ -91,4 +111,3 @@
           </div>
         </div>
 </section>
-<% end -%>
