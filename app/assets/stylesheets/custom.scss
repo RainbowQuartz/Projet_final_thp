@@ -1,6 +1,14 @@
 @import "bootstrap";
 
 /*flash*/
+.alert{
+  position: absolute;
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  float: right;
+  height: 50px;
+}
 
 .alert ul li{
   list-style-type: none;
