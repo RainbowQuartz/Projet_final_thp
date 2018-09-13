@@ -36,7 +36,7 @@
                       <%= link_to (image_tag 'icons/profil-blanc.png'), user_path(current_user.id), class: 'nav-link' %>
                     </li>
                     <li class="nav-item dropdown megamenu">
-                      <%= link_to (image_tag 'icons/enveloppe-blanc.png'), user_chats_path(current_user.id), class: 'nav-link' %>
+                      <%= link_to (image_tag 'icons/enveloppe-blanc.png'), user_chats_path(current_user), class: 'nav-link' %>
                     </li>
                     <li class="nav-item dropdown megamenu">
                       <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: 'nav-link'%>

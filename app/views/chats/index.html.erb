@@ -53,16 +53,22 @@
                       <%= link_to 'Messagerie', user_chats_path(current_user), class: 'active' %>
                   </div>
 
-<h3>Vos conversations :</h3>
-<ul class="chat-name">
-  <% @users.each do |other_user| %>
-   <% if other_user != current_user %>
-     <li >
-       <%= link_to(user_chats_path(current_user, :other_user => other_user.id), method: :post) do %>
-       <%= other_user.first_name %>
-       <%= other_user.last_name %>
-       <% end %>
-     </li>
-    <% end %>
-  <% end %>
-</ul>
+                  <h3>Vos conversations :</h3>
+                  <ul class="chat-name">
+                    <% @users.each do |other_user| %>
+                     <% if other_user != current_user %>
+                       <li >
+                         <%= link_to(user_chats_path(current_user, :other_user => other_user.id), method: :post) do %>
+                         <%= other_user.first_name %>
+                         <%= other_user.last_name %>
+                         <% end %>
+                       </li>
+                      <% end %>
+                    <% end %>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

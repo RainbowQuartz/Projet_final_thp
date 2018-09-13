@@ -1,5 +1,46 @@
 @import "bootstrap";
 
+/*flash*/
+.alert {
+  position: absolute;
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  float: right;
+  height: 50px;
+}
+
+.alert ul li {
+  list-style-type: none;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
 
 /* miscellaneous */
 
@@ -14,24 +55,20 @@
 
 /* chat */
 
-.messenger{
-  border-bottom: 0.5px solid #E5E5E5;
-}
-
-.chat-name{
+.chat-name {
   padding-left: 0px;
 }
 
-.chat-name li{
+.chat-name li {
   list-style:  none;
   border-bottom: 0.3px solid rgba(172,172,172,1);
 }
 
-.chat-name li a{
+.chat-name li a {
   padding-left: 5px;
 }
 
-.message{
+.message {
   border: 2px solid #dedede;
   background-color: #ECECEC;
   color: #03050f !important;
