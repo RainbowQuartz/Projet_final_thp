@@ -12,7 +12,7 @@
   </div>
   <section class="slice sct-color-1">
     <div class="container">
-      <h3>Quelques profils succeptibles de vous interesser :</h3>
+      <h3 class="c-orange">Quelques profils succeptibles de vous interesser :</h3>
       <div class="widget mt-4">
         <div class="row-wrapper">
           <div class="row cols-md-space cols-sm-space cols-xs-space">
@@ -23,9 +23,9 @@
                   <div class="block block--style-3">
                     <div class="profile-picture profile-picture--style-2">
                       <% if User.find(key).avatar.attached? %>
-                        <%= image_tag User.find(key).avatar, class: "img-center"%>
+                        <%= link_to (image_tag User.find(key).avatar, class: "img-center"), User.find(key) %>
                       <% else %>
-                        <%= image_tag "profil.jpg", class: "img-center"%>
+                        <%= link_to (image_tag "profil.jpg", class: "img-center"), User.find(key) %>
                       <% end %>
                     </div>
                     <div class="block-body text-center">
@@ -53,7 +53,10 @@
                           </li>
                         </ul>
                       </div>
-                      <p><%= link_to 'Voir profil', User.find(key), class: 'btn btn-styled btn-base-1 btn-circle'%>
+                      <%= link_to 'Voir profil', User.find(key), class: 'btn btn-styled btn-base-1 btn-circle' %>
+                    </div>
+                    <div class="profile-connect mt-4">
+                      <p></p>
                     </div>
                   </div>
                 </div>

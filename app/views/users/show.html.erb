@@ -1,5 +1,5 @@
 <% content_for(:title) do %>
-<%= "Speak&Up | " + @user.first_name + " " + @user.last_name %>
+    <%= "Speak&Up | " + @user.first_name + " " + @user.last_name %>
 <% end %>
 <section class="slice-sm sct-color-1">
     <div class="profile">
@@ -8,34 +8,35 @@
                 <div class="col-lg-4">
                     <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
                         <div class="widget">
-        <!-- Profile picture -->
-					       <div class="profile-picture profile-picture--style-2">
-                            <% if @user.avatar.attached? %>
-                                <%= image_tag @user.avatar, class: "img-center"%>
+                            <div class="profile-picture profile-picture--style-2">
+                                <% if @user == current_user %>
+                                    <% if @user.avatar.attached? %>
+                                        <%= image_tag @user.avatar, class: "img-center"%>
+                                    <% else %>
+                                        <%= image_tag "profil.jpg", class: "img-center"%>
+                                    <% end %>
+                                    <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                                 <% else %>
-                                    <%= image_tag "profil.jpg", class: "img-center"%>
+                                    <% if @user.avatar.attached? %>
+                                        <%= image_tag @user.avatar, class: "img-center" %>
+                                    <% else %>
+                                        <%= image_tag "profil.jpg", class: "img-center" %>
+                                    <% end %>
                                 <% end %>
-                                <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                             </div>
-					        <!-- Profile details -->
-					        <div class="profile-details">
-					            <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
-
-					            <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
-					        </div>
-
-
-					        <!-- Profile connect -->
-					        <div class="profile-connect mt-4">
-					            <p><%= render 'follow_form' %></p>
-					            <p><%= render '/chats/send_message' %></p>
+				            <div class="profile-details">
+				                <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+				                <h3 class="heading heading-light heading-6 strong-400 profile-location"><%= @user.city %>, <%= @user.country %></h3>
+				            </div>
+				            <div class="profile-connect mt-4">
+				                <p><%= render 'follow_form' %></p>
+				                <p><%= render '/chats/send_message' %></p>
                             </div>
-   						</div>
+   					    </div>
+                    </div>
                 </div>
-            </div>
                 <div class="col-lg-8">
                     <div class="main-content">
-                    <!-- Page title -->
                         <div class="page-title">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 col-12">
@@ -51,17 +52,19 @@
                             </div>
                         </div>
                         <div class="link-menu link-menu--style-3 py-4 border-bottom">
-                        <%= link_to 'Mon profil', current_user, class: 'active'%>
-                        <%= link_to 'Modifier mon profil', edit_user_registration_path %>
-                        <%= link_to 'Mes contacts', match_user_path(current_user) %>
-                        <%= link_to 'Mes demandes', following_user_path(current_user) %>
-                        <%= link_to 'Messagerie', user_chats_path(current_user) %>
-                      </div>
-                    <!-- Account settings -->
+                            <% if @user == current_user %>
+                                <%= link_to 'Mon profil', current_user, class: 'active'%>
+                                <%= link_to 'Modifier mon profil', edit_user_registration_path %>
+                                <%= link_to 'Mes contacts', match_user_path(current_user) %>
+                                <%= link_to 'Mes demandes', following_user_path(current_user) %>
+                                <%= link_to 'Messagerie', user_chats_path(current_user) %>
+                                <% else %>
+                                    <%= link_to 'Mon profil', current_user, class: 'active'%>
+                            <% end %>
+                        </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-default" data-toggle="validator" role="form">
-                                <!-- General information -->
                                     <div class="card no-border bg-transparent">
                                         <div class="card-title px-0 pb-0 no-border">
                                             <h2 class="heading heading-5 text-capitalize strong-500 mb-0">Biographie
@@ -75,9 +78,9 @@
                             </div>
                         </div>
                                 <!-- Languages section -->
-                <hr class="mt-0 mb-0">
-                <div class="card no-border bg-transparent">
-                  <div class="card-title px-0 pb-0 no-border">
+                            <hr class="mt-0 mb-0">
+                            <div class="card no-border bg-transparent">
+                                <div class="card-title px-0 pb-0 no-border">
                                     <div class="page-title">
                                         <div class="row align-items-center">
                                             <div class="col-lg-6 col-12">
@@ -94,7 +97,7 @@
                                             <div class="card no-border bg-transparent">
                                                 <div class="card-title px-0">
                                                     <h3 class="heading heading-6 strong-600">
-                                                    Langues maitrisées :
+                                                        Langues maitrisées :
                                                     </h3>
                                                 </div>
                                                 <div class="card-body px-0">
@@ -112,7 +115,7 @@
                                             <div class="card no-border bg-transparent">
                                                 <div class="card-title px-0">
                                                     <h3 class="heading heading-6 strong-600">
-                                                    Langues en cours d'apprentissage :
+                                                        Langues en cours d'apprentissage :
                                                     </h3>
                                                 </div>
                                                 <div class="card-body px-0">
@@ -128,6 +131,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             <!-- Interests section  -->
                                 <hr class="mt-0 mb-0">
                                 <div class="card no-border bg-transparent">
