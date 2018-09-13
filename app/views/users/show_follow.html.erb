@@ -25,7 +25,6 @@
         </div>
         <div class="col-lg-8">
           <div class="main-content">
-          	<% provide(:title, @title) %>
             <div class="row align-items-center">
               <div class="col-lg-6 col-12">
                 <h2 class="heading heading-6 strong-600 mb-0 text-capitalize strong-500 mb-0">
@@ -48,45 +47,48 @@
 					<div class="row cols-md-space cols-sm-space cols-xs-space">
             <% if @users.any? %>
               <% @users.each do |user| %>
-                <div class="col-lg-4">
-                  <div class="block block--style-3">
-                    <div class="profile-picture profile-picture--style-2">
-                      <% if user.avatar.attached? %>
-                        <%= link_to (image_tag user.avatar, class: "img-center"), user %>
-                      <% else %>
-                        <%= link_to (image_tag "profil.jpg", class: "img-center"), user %>
-                      <% end %>
-                    </div>
-                    <div class="block-body text-center">
-                      <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
-                        <%= "#{user.first_name} #{user.last_name}" %>
-                      </h3>
-                      <h3 class="heading heading-light heading-sm strong-300 c-black">
-                        <%= user.city %>
-                      </h3>
-                      <div class="aux-info-wrapper border-top">
-                        <ul class="aux-info">
-                          <li class="heading strong-400 text-center">
-                            <span class="d-block strong-600">
-                              Parle :
-                              <% user.spoken_languages.each do |language| %>
-                                <%= "#{Language.find(language.language_id).name}, " %>
-                              <% end %>
-                            </span>
-                            <span class="d-block strong-600">
-                              Apprends à parler :
-                              <% user.wanted_languages.each do |language| %>
-                                <%= "#{Language.find(language.language_id).name}, "%>
-                              <% end %>
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                        <%= link_to 'Voir le profil', user %><br>
-                        <% if @other_user != current_user %>
-                          <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
+                <% if User.match?(current_user, user) %>
+                <% else %>
+                  <div class="col-lg-4">
+                    <div class="block block--style-3">
+                      <div class="profile-picture profile-picture--style-2">
+                        <% if user.avatar.attached? %>
+                          <%= link_to (image_tag user.avatar, class: "img-center"), user %>
+                        <% else %>
+                          <%= link_to (image_tag "profil.jpg", class: "img-center"), user %>
                         <% end %>
+                      </div>
+                      <div class="block-body text-center">
+                        <h3 class="heading heading-6 strong-600 mb-0 mb-0 c-orange">
+                          <%= "#{user.first_name} #{user.last_name}" %>
+                        </h3>
+                        <h3 class="heading heading-light heading-sm strong-300 c-black">
+                          <%= user.city %>
+                        </h3>
+                        <div class="aux-info-wrapper border-top">
+                          <ul class="aux-info">
+                            <li class="heading strong-400 text-center">
+                              <span class="d-block strong-600">
+                                Parle :
+                                <% user.spoken_languages.each do |language| %>
+                                  <%= "#{Language.find(language.language_id).name}, " %>
+                                <% end %>
+                              </span>
+                              <span class="d-block strong-600">
+                                Apprends à parler :
+                                <% user.wanted_languages.each do |language| %>
+                                  <%= "#{Language.find(language.language_id).name}, "%>
+                                <% end %>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <%= link_to 'Voir le profil', user %><br>
+                          <% if @other_user != current_user %>
+                            <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
+                        <% end %>
+                      <% end %>
                       </div>
                     </div>
                   </div>
