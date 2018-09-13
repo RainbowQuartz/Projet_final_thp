@@ -52,9 +52,9 @@
                   <div class="block block--style-3">
                     <div class="profile-picture profile-picture--style-2">
                       <% if user.avatar.attached? %>
-                        <%= image_tag user.avatar, class: "img-center"%>
+                        <%= link_to (image_tag user.avatar, class: "img-center"), user %>
                       <% else %>
-                        <%= image_tag "profil.jpg", class: "img-center"%>
+                        <%= link_to (image_tag "profil.jpg", class: "img-center"), user %>
                       <% end %>
                     </div>
                     <div class="block-body text-center">
