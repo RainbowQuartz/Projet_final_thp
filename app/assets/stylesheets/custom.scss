@@ -1,7 +1,6 @@
 @import "bootstrap";
 
 
-
 /* miscellaneous */
 
 .debug_dump {
@@ -14,6 +13,10 @@
 }
 
 /* chat */
+
+.messenger{
+  border-bottom: 0.5px solid #E5E5E5;
+}
 
 .chat-name{
   padding-left: 0px;
@@ -46,8 +49,22 @@
   text-align: left;
 }
 
+#message_content{
+  border: 2px solid #dedede;
+  color: #03050f !important;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  width: 500px !important;
+
+}
+
 .message::after {
   content: "";
   clear: both;
   display: table;
+}
+
+#button-retour{
+  margin-top: 20px;
 }
