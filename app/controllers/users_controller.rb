@@ -53,9 +53,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def send_notification(user)
+    if User.match?(current_user, user)
+      UserMailer.match_notifications(current_user, user1)
+    end
+  end
 
  private
-
 
 
 end
