@@ -9,12 +9,20 @@
                     <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
                         <div class="widget">
                             <div class="profile-picture profile-picture--style-2">
-                                <% if @user.avatar.attached? %>
-                                    <%= image_tag @user.avatar, class: "img-center"%>
+                                <% if @user == current_user %>
+                                    <% if @user.avatar.attached? %>
+                                        <%= image_tag @user.avatar, class: "img-center"%>
+                                    <% else %>
+                                        <%= image_tag "profil.jpg", class: "img-center"%>
+                                    <% end %>
+                                    <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                                 <% else %>
-                                    <%= image_tag "profil.jpg", class: "img-center"%>
+                                    <% if @user.avatar.attached? %>
+                                        <%= image_tag @user.avatar, class: "img-center" %>
+                                    <% else %>
+                                        <%= image_tag "profil.jpg", class: "img-center" %>
+                                    <% end %>
                                 <% end %>
-                                <%= link_to '', edit_user_registration_path, :class =>"btn-aux" %>
                             </div>
 				            <div class="profile-details">
 				                <h2 class="heading heading-4 strong-500 profile-name"><%= @user.first_name %> <%= @user.last_name %></h2>
