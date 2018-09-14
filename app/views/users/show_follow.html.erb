@@ -85,9 +85,6 @@
                         </div>
                         <div>
                           <%= link_to 'Voir le profil', user %><br>
-                          <% if @other_user != current_user %>
-                            <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
-                        <% end %>
                         </div>
                       </div>
                     </div>
