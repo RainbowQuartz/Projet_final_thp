@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 /*flash*/
 .alert {
   position: absolute;
@@ -42,16 +43,6 @@
     text-align: left;
  }
 
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  border: 1px solid rgba(172,172,172,1);
-  background-color: #eaeaea;
-}
 
 /* chat */
 
@@ -86,14 +77,13 @@
   text-align: left;
 }
 
-#message_content{
+#message_content {
   border: 2px solid #dedede;
   color: #03050f !important;
   border-radius: 50px;
   padding: 10px 20px;
   margin: 10px 0;
   width: 500px !important;
-
 }
 
 .message::after {
@@ -104,4 +94,8 @@
 
 #button-retour{
   margin-top: 20px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
