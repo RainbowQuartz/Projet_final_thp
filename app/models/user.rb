@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable
+
+  has_one_attached :avatar
+
   has_many :spoken_languages, dependent:   :destroy
   has_many :languages, through: :spoken_languages
   has_many :wanted_languages, dependent:   :destroy
@@ -24,11 +31,6 @@ class User < ApplicationRecord
   validates :birthdate, presence: true
   validates :bio, presence: true
 
-  has_one_attached :avatar
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable
 
 # live chat association
   has_many :messages

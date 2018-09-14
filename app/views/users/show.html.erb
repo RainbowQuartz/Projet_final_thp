@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row cols-xs-space cols-sm-space cols-md-space">
                 <div class="col-lg-4">
-                    <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
+                    <div class="<%= @user == current_user ? 'sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill' : 'sidebar sidebar-inverse bg-base-3 sidebar--style-2 border stickyfill' %>">
                         <div class="widget">
                             <div class="profile-picture profile-picture--style-2">
                                 <% if @user == current_user %>
@@ -44,7 +44,6 @@
                                 <div class="col-lg-6 col-12">
                                      <h2 class="heading heading-5 text-capitalize strong-500 mb-0">Profil de <%= @user.first_name %></h2>
                                 </div>
-                            </div>
                         </div>
                         <div class="link-menu link-menu--style-3 py-4 border-bottom">
                             <% if @user == current_user %>
