@@ -14,9 +14,9 @@
     <div class="container">
       <h3 class="c-orange">Quelques profils susceptibles de vous interesser :</h3>
      <div class="container">
-       <% unless current_user.spoken_languages.empty? || current_user.wanted_languages.empty? ||
+       <% if current_user.spoken_languages.empty? || current_user.wanted_languages.empty? ||
        current_user.interests.empty? %>
-       <p>Afin d'améliorer votre recherche, pensez à remplir vos <%= link_to 'Langues', languages_edit_path, class: 'btn' %> et <%= link_to 'Préférences', interests_edit_path, class: 'btn' %> </p>
+       <p>Afin d'optimiser la recherche, pensez à ajouter des <%= link_to 'Langues', languages_edit_path, class: 'btn' %> et <%= link_to 'Préférences', interests_edit_path, class: 'btn' %> à votre profil. </p>
        <% end %>
      </div>
       <div class="widget mt-4">
