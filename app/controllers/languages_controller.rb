@@ -27,4 +27,17 @@ class LanguagesController < ApplicationController
 
     redirect_to current_user
   end
+
+  def delete
+    p params[:my_params]
+    language = params[:my_params]
+    
+    if language[:language_type] == 'spoken'
+      current_user.spoken_languages.find_by(language_id: language[:language_id]).destroy
+    elsif language[:language_type] == 'wanted'
+      current_user.wanted_languages.find_by(language_id: language[:language_id]).destroy
+    end
+
+    redirect_to current_user
+  end
 end

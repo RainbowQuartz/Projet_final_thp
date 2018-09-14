@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   get 'languages/edit'
   post 'languages/edit', to: 'languages#create'
+  delete 'languages/edit', to: 'languages#delete'
   get 'interests/edit'
   post 'interests/edit', to: 'interests#update'
+  delete 'interests/edit', to: 'interests#delete'
   devise_for :users, controllers: {
                                     sessions: 'users/sessions',
                                     registrations: 'users/registrations'
@@ -22,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :messages, only:[:create]
+  resources :messages, only: [:create]
   resources :relationships, only: [:create, :destroy]
 
   # Serve websocket cable requests in-process

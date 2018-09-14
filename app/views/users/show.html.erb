@@ -30,15 +30,18 @@
 				            </div>
 				            <div class="profile-connect mt-4">
 				                <p><%= render 'follow_form' %></p>
-				                <p><%= render '/chats/send_message'%></p>
-                            </div>
+                        <% unless @user == current_user %>
+                          <p><%= link_to 'Envoyer message', user_chats_path(current_user), class: 'btn btn-styled btn-base-1 btn-circle' %></p>
+                        <% end %>
+                    </div>
+
    					    </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="main-content">
                         <div class="page-title">
-                        <% if @user == current_user %>
+                            <% if @user == current_user %>
                            <div class="row align-items-center">
                                 <div class="col-lg-6 col-12">
                                   <h2 class="heading heading-5 text-capitalize strong-500 mb-0">Mon profil</h2>
@@ -56,7 +59,8 @@
                                     <%= link_to 'Messagerie', user_chats_path(current_user) %>
                                 <% end %>
                             </div>
-                        <% end -%>
+                        </div>
+                            <% end -%>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-default" data-toggle="validator" role="form">
@@ -99,7 +103,12 @@
                                                     <div>
                                                         <ul class="checkbox">
                                                             <% @user.spoken_languages.each do |language| %>
-                                                                <li><%= Language.find(language.language_id).name %></li>
+                                                              <li>
+                                                                <%= Language.find(language.language_id).name %>
+                                                                <% if @user == current_user %>
+                                                                    <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'spoken', :language_id => language.language.id }), method: :delete %>
+                                                                <% end %>
+                                                              </li>
                                                             <% end %>
                                                         </ul>
                                                     </div>
@@ -117,7 +126,12 @@
                                                     <div>
                                                         <ul class="checkbox">
                                                           <% @user.wanted_languages.each do |language| %>
-                                                              <li><%= Language.find(language.language_id).name %></li>
+                                                              <li> 
+                                                                <%= Language.find(language.language_id).name %>
+                                                                <% if @user == current_user %>
+                                                                <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'wanted', :language_id => language.language.id }), method: :delete %>
+                                                                <% end %>
+                                                              </li>
                                                           <% end %>
                                                         </ul>
                                                     </div>
@@ -126,7 +140,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             <!-- Interests section  -->
                                 <hr class="mt-0 mb-0">
                                     <div class="card no-border bg-transparent">
@@ -139,14 +153,18 @@
                                                         </h2>
                                                     </div>
                                                 </div>
+                                    <div class="card-body px-0">
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-4">
+                                                <% @user.interests.each do |interest| %>
+                                                    <span class="badge badge-lg badge-primary">
+                                                    <%= interest.name %>
+                                                    <% if @user == current_user %>
+                                                        <%= link_to "X", interests_edit_path(:interest_id => interest.id), method: :delete %>
+                                                        <% end %>
+                                                  </span>
+                                                <% end %>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-lg-4">
-                                            <% @user.interests.each do |interest| %>
-                                            <span class="badge badge-lg badge-primary"><%= interest.name %></span>
-                                            <% end %>
                                         </div>
                                     </div>
                                 </div>

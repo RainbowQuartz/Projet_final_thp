@@ -13,12 +13,18 @@ class InterestsController < ApplicationController
     p params
     params[:interests][:id].each do |interest|
       if !interest.empty?
-        if current_user.interests.ids.include?(interest)
-        else
+        if !current_user.interests.ids.include?(interest.to_i)
           current_user.interests << Interest.find(interest)
         end
       end
     end
+    redirect_to current_user
+  end
+
+  def delete
+    p params[:interest_id]
+
+    current_user.interests.delete(params[:interest_id])
     redirect_to current_user
   end
 end
