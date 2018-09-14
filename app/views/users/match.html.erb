@@ -27,11 +27,7 @@
           <div class="main-content">
             <div class="row align-items-center">
               <div class="col-lg-6 col-12">
-                <h2 class="heading heading-6 strong-600 mb-0 text-capitalize strong-500 mb-0">
-                    <a href="#" class="link text-underline--none">
-                      <i class="ion-ios-arrow-back"></i> Contacts
-                    </a>
-                </h2>
+                <h2 class="heading heading-5 text-capitalize strong-500 mb-0">Mes Contacts</h2>
               </div>
               <div class="col-lg-6 col-12">
               </div>
@@ -86,10 +82,10 @@
                         </ul>
                       </div>
                       <div>
-                        <%= link_to 'Voir le profil', user %><br>
-                        <% if @other_user != current_user %>
-                          <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
-                        <% end %>
+                        <p><%= link_to 'Voir le profil', user %><br></p>
+                          <p><% if @other_user != current_user %>
+                            <%= link_to 'Envoyer un message', user_chats_path(current_user), class:"btn btn-styled btn-base-1 btn-circle" %>
+                        <% end %></p>
                       </div>
                     </div>
                   </div>

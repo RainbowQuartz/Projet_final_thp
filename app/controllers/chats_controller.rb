@@ -3,7 +3,7 @@ require 'securerandom'
 include ::ApplicationHelper
 
 class ChatsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
     chats = current_user.chats
@@ -48,5 +48,5 @@ private
   def require_login
     redirect_to new_user_session_path unless user_signed_in?
   end
-
+ 
 end
