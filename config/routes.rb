@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :messages, only:[:create]
+  resources :messages, only: [:create]
   resources :relationships, only: [:create, :destroy]
 
   # Serve websocket cable requests in-process

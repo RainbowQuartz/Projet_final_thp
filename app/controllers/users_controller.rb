@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   include ::ApplicationHelper
   before_action :authenticate_user!, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
+
+  def index
+    redirect_to root_path
+  end
+
 	def show
     @user = User.find(params[:id])
   end
