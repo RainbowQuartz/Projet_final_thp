@@ -13,6 +13,12 @@
   <section class="slice sct-color-1">
     <div class="container">
       <h3 class="c-orange">Quelques profils susceptibles de vous interesser :</h3>
+     <div class="container">
+       <% unless current_user.spoken_languages.empty? || current_user.wanted_languages.empty? ||
+       current_user.interests.empty? %>
+       <p>Afin d'améliorer votre recherche, pensez à remplir vos <%= link_to 'Langues', languages_edit_path, class: 'btn' %> et <%= link_to 'Préférences', interests_edit_path, class: 'btn' %> </p>
+       <% end %>
+     </div>
       <div class="widget mt-4">
         <div class="row-wrapper">
           <div class="row cols-md-space cols-sm-space cols-xs-space">
