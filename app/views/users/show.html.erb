@@ -106,7 +106,7 @@
                                                               <li>
                                                                 <%= Language.find(language.language_id).name %>
                                                                 <% if @user == current_user %>
-                                                                    <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'spoken', :language_id => language.language.id }), method: :delete %>
+                                                                   <p> <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'spoken', :language_id => language.language.id }), method: :delete, class:"c-orange" %></p>
                                                                 <% end %>
                                                               </li>
                                                             <% end %>
@@ -129,8 +129,8 @@
                                                               <li> 
                                                                 <%= Language.find(language.language_id).name %>
                                                                 <% if @user == current_user %>
-                                                                <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'wanted', :language_id => language.language.id }), method: :delete %>
-                                                                <% end %>
+                                                                <p><%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'wanted', :language_id => language.language.id }), method: :delete, class:'c-orange' %>
+                                                                <% end %></p>
                                                               </li>
                                                           <% end %>
                                                         </ul>
