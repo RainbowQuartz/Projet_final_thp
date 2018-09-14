@@ -32,10 +32,10 @@
                     <%= link_to (image_tag 'icons/home-blanc.png'), root_path, class: 'nav-link' %>
                   </li>
                   <% if user_signed_in? %>
-                    <li class="nav-item dropdown megamenu">          
+                    <li class="nav-item dropdown megamenu">
                       <%= link_to (image_tag 'icons/profil-blanc.png'), user_path(current_user.id), class: 'nav-link' %>
                     </li>
-                    <li class="nav-item dropdown megamenu">          
+                    <li class="nav-item dropdown megamenu">
                       <%= link_to (image_tag 'icons/enveloppe-blanc.png'), user_chats_path(current_user), class: 'nav-link' %>
                     </li>
                     <li class="nav-item dropdown megamenu">
@@ -49,8 +49,7 @@
                         <%= link_to "S'enregistrer", new_user_registration_path, class: 'nav-link' %>
                       </li>
                   <% end %>
-              </ul>    
-            </div> 
-        </div>      
+              </ul>
+            </div>
+        </div>
     </nav>
-
