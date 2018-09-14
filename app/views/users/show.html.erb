@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row cols-xs-space cols-sm-space cols-md-space">
                 <div class="col-lg-4">
-                    <div class="sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill">
+                    <div class="<%= @user == current_user ? 'sidebar sidebar-inverse bg-base-1 sidebar--style-2 no-border stickyfill' : 'sidebar sidebar-inverse bg-base-3 sidebar--style-2 border stickyfill' %>"> 
                         <div class="widget">
                             <div class="profile-picture profile-picture--style-2">
                                 <% if @user == current_user %>
