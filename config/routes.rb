@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete 'languages/edit', to: 'languages#delete'
   get 'interests/edit'
   post 'interests/edit', to: 'interests#update'
+  delete 'interests/edit', to: 'interests#delete'
   devise_for :users, controllers: {
                                     sessions: 'users/sessions',
                                     registrations: 'users/registrations'
