@@ -97,7 +97,10 @@
                                                     <div>
                                                         <ul class="checkbox">
                                                             <% @user.spoken_languages.each do |language| %>
-                                                                <li><%= Language.find(language.language_id).name %></li>
+                                                              <li>
+                                                                <%= Language.find(language.language_id).name %>
+                                                                <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'spoken', :language_id => language.language.id }), method: :delete %>
+                                                              </li>
                                                             <% end %>
                                                         </ul>
                                                     </div>
@@ -115,7 +118,10 @@
                                                     <div>
                                                         <ul class="checkbox">
                                                           <% @user.wanted_languages.each do |language| %>
-                                                              <li><%= Language.find(language.language_id).name %></li>
+                                                              <li>
+                                                                <%= Language.find(language.language_id).name %>
+                                                                <%= link_to "Supprimer", languages_edit_path(:my_params => { :language_type => 'wanted', :language_id => language.language.id }), method: :delete %>
+                                                              </li>
                                                           <% end %>
                                                         </ul>
                                                     </div>
