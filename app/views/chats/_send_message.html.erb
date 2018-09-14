@@ -1,5 +1,5 @@
 <% unless @user == current_user %>
   <% if  %>
-    <%= link_to 'envoyer message', user_chats_path(current_user, :other_user => @other_user), method: :post %>
+    <%= link_to 'envoyer message', user_chats_path(current_user, :other_user => @other_user), method: :post, class:"btn btn-styled btn-base-1 btn-circle" %>
   <% end %>
 <% end %>
