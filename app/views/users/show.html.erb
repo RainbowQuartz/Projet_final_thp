@@ -150,7 +150,9 @@
                                                 <% @user.interests.each do |interest| %>
                                                     <span class="badge badge-lg badge-primary">
                                                     <%= interest.name %>
-                                                    <%= link_to "X", interests_edit_path(:interest_id => interest.id), method: :delete %>
+                                                    <% if @user == current_user %>
+                                                        <%= link_to "X", interests_edit_path(:interest_id => interest.id), method: :delete %>
+                                                        <% end %>
                                                   </span>
                                                 <% end %>
                                             </div>
