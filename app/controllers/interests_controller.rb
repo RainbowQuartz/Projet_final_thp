@@ -21,4 +21,11 @@ class InterestsController < ApplicationController
     end
     redirect_to current_user
   end
+
+  def delete
+    p params[:interest_id]
+
+    current_user.interests.delete(params[:interest_id])
+    redirect_to current_user
+  end
 end
