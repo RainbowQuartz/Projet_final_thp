@@ -141,7 +141,10 @@
                                         <div class="row">
                                             <div class="col-md-6 col-lg-4">
                                                 <% @user.interests.each do |interest| %>
-                                                    <span class="badge badge-lg badge-primary"><%= interest.name %></span>
+                                                    <span class="badge badge-lg badge-primary">
+                                                    <%= interest.name %>
+                                                    <%= link_to "X", interests_edit_path(:interest_id => interest.id), method: :delete %>
+                                                  </span>
                                                 <% end %>
                                             </div>
                                         </div>
