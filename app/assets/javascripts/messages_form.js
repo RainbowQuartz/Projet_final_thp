@@ -1,4 +1,3 @@
-
 function messageForm(){
   var shiftDown = false;
   var chatForm = $("#new_message");
