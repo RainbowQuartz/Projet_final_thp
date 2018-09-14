@@ -107,7 +107,7 @@
 }
 
 .border-top {
-    border-top: 0.5px solid #FF5A26 !important;
+    border-color: #FF5A26 !important;
 }
 
 .link-menu--style-3 a {
@@ -135,11 +135,8 @@
     border: 3px solid #FF5A26 !important;
 }
 
-
-
-@media (min-width: 932px) {
-    section{
-    height: 100%;
-    }
+.marge {
+    margin-bottom: 2%;
 }
+
 
