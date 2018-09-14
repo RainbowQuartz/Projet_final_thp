@@ -86,10 +86,10 @@
                         </ul>
                       </div>
                       <div>
-                        <%= link_to 'Voir le profil', user %><br>
-                        <% if @other_user != current_user %>
-                          <%= link_to 'Envoyer un message', user_chats_path(current_user) %>
-                        <% end %>
+                        <p><%= link_to 'Voir le profil', user %><br></p>
+                          <p><% if @other_user != current_user %>
+                            <%= link_to 'Envoyer un message', user_chats_path(current_user), class:"btn btn-styled btn-base-1 btn-circle" %>
+                        <% end %></p>
                       </div>
                     </div>
                   </div>
