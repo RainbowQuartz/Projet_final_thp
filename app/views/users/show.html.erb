@@ -30,7 +30,7 @@
 				            </div>
 				            <div class="profile-connect mt-4">
 				                <p><%= render 'follow_form' %></p>
-                        <% unless @user == current_user %>
+                        <% unless @user == current_user || !User.match?(@user, current_user) %>
                           <p><%= link_to 'Envoyer message', user_chats_path(current_user), class: 'btn btn-styled btn-base-1 btn-circle' %></p>
                         <% end %>
                     </div>
